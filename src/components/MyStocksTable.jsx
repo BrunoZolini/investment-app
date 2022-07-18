@@ -8,8 +8,8 @@ export default function MyStocksTable() {
       <caption>Minhas Ações</caption>
       <thead>
         <tr>
-          <th>Empresa</th>
           <th>Código</th>
+          <th>Empresa</th>
           <th>Categoria</th>
           <th>Valor Unitário</th>
           <th>Quantidade</th>
@@ -21,8 +21,8 @@ export default function MyStocksTable() {
         { mockDB
           .map((stock) => (
             <tr key={ stock.id }>
-              <td>{stock.name}</td>
               <td>{stock.code}</td>
+              <td>{stock.name}</td>
               <td>{stock.category}</td>
               <td>{parseFloat(stock.value).toFixed(2)}</td>
               <td>{stock.category}</td>

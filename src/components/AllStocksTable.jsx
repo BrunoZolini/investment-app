@@ -8,8 +8,8 @@ export default function AllStocksTable() {
       <caption>Ações no mercado</caption>
       <thead>
         <tr>
-          <th>Empresa</th>
           <th>Código</th>
+          <th>Empresa</th>
           <th>Categoria</th>
           <th>Valor Unitário</th>
           <th>Negociar</th>
@@ -19,8 +19,8 @@ export default function AllStocksTable() {
         { mockDB
           .map((stock) => (
             <tr key={ stock.id }>
-              <td>{stock.name}</td>
               <td>{stock.code}</td>
+              <td>{stock.name}</td>
               <td>{stock.category}</td>
               <td>{parseFloat(stock.value).toFixed(2)}</td>
               <td>
