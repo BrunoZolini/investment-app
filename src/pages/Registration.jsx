@@ -54,7 +54,7 @@ export default function Registration() {
 
   return (
     <div>
-      {isRegistered && <p>Cadastrando Usuário</p>}
+      {isRegistered && <p>Cadastrando Usuário...</p>}
       <form>
         <label htmlFor="email">
           Email:

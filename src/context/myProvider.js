@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 import MyContext from './myContext';
 
 function Provider({ children }) {
-  const [currentUser, setCurrentUser] = useState({});
+  const [willBuy, setWillBuy] = useState(true);
+  const [isConfirmed, setIsConfirmed] = useState(false);
+
   const state = {
-    currentUser,
-    setCurrentUser,
+    willBuy,
+    setWillBuy,
+    isConfirmed,
+    setIsConfirmed,
   }
 
   return (

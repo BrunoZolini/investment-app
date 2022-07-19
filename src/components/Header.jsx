@@ -10,7 +10,7 @@ export default function Header() {
   const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('currentUser')) || [];
+    const user = JSON.parse(localStorage.getItem('currentUser')) || {};
     setCurrentUser(user);
     setLoading(true);
   }, []);
