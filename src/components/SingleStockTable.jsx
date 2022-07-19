@@ -9,9 +9,8 @@ export default function SingleStockTable({ stock }) {
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser')) || {};
     const allUsersStocks = JSON.parse(localStorage.getItem('usersStocks')) || {};
-    const i = allUsersStocks[user.id].findIndex(({ code }) => code === stock.code)
-      setCurrentStock(allUsersStocks[user.id][i]);
-  }, [stock.code]);
+      setCurrentStock(allUsersStocks[user.id]);
+  }, []);
 
   return (
     <div>
@@ -35,9 +34,13 @@ export default function SingleStockTable({ stock }) {
           <td>{stock.name}</td>
           <td>{stock.category}</td>
           <td>{parseFloat(stock.value).toFixed(2)}</td>
-          { !willBuy && <>
-          <td>{currentStock.quantity}</td>
-          <td>{(parseFloat(stock.value) * parseFloat(currentStock.quantity)).toFixed(2)}</td>
+          { !willBuy && currentStock.length && <>
+          <td>{currentStock.find(({ code }) => code === stock.code).quantity}</td>
+          <td>{(parseFloat(stock.value)
+            * parseFloat(currentStock
+            .find(({ code }) => code === stock.code)
+            .quantity)).toFixed(2)}
+          </td>
           </>  }                           
         </tr>          
       </tbody>

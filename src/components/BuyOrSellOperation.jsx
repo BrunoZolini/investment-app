@@ -2,19 +2,23 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import context from '../context/myContext'
 
-
 export default function BuyOrSellOperation({ stock }) {
-const { willBuy, setIsConfirmed } = useContext(context)
-const [operation, setOperation] = useState()
-const [quantity, setQuantity] = useState(1)
+const { willBuy, setIsConfirmed } = useContext(context);
+const [operation, setOperation] = useState();
+const [quantity, setQuantity] = useState(1);
+const [user, setUser] = useState({});
+const [allUsersStocks, setAllUsersStocks] = useState({}) 
 
 const history = useHistory();
 
-
-
 useEffect(() => {
+  const currUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+  const usersStocks = JSON.parse(localStorage.getItem('usersStocks')) || {};
+
+  setUser(currUser);
+  setAllUsersStocks(usersStocks);
   setOperation(willBuy ? 'Comprar' : 'Vender')
-}, [willBuy]);
+}, [willBuy]);  
 
 const validateQuantity = (target) => {
   const value = target.value.replace(/\+|-/ig, '');
@@ -22,19 +26,17 @@ const validateQuantity = (target) => {
 }
 
 const buyOperation = () => {
-  const user = JSON.parse(localStorage.getItem('currentUser')) || {};
-    const allUsersStocks = JSON.parse(localStorage.getItem('usersStocks')) || {};
-    if (allUsersStocks[user.id]) {      
-      if (allUsersStocks[user.id].some(({ code }) => code === stock.code)) {
-        const i = allUsersStocks[user.id].findIndex(({ code }) => code === stock.code)
-        allUsersStocks[user.id][i].quantity = parseFloat(allUsersStocks[user.id][i].quantity) + parseFloat(quantity); 
-        return localStorage.setItem('usersStocks', JSON.stringify(allUsersStocks)); // Caso o seja uma compra repetida
-      }
-      allUsersStocks[user.id].push({...stock, quantity })
-      return localStorage.setItem('usersStocks', JSON.stringify(allUsersStocks)); // Caso o seja a primeira de determinada ação
+  if (allUsersStocks[user.id]) {      
+    if (allUsersStocks[user.id].some(({ code }) => code === stock.code)) {
+      const i = allUsersStocks[user.id].findIndex(({ code }) => code === stock.code)
+      allUsersStocks[user.id][i].quantity = parseFloat(allUsersStocks[user.id][i].quantity) + parseFloat(quantity); 
+      return localStorage.setItem('usersStocks', JSON.stringify(allUsersStocks)); // Caso o seja uma compra repetida
     }
-    return localStorage.setItem('usersStocks', JSON.stringify(
-      {[user.id] : [{...stock, quantity }]})); // Caso o seja a primeira compra do usuário
+    allUsersStocks[user.id].push({...stock, quantity })
+    return localStorage.setItem('usersStocks', JSON.stringify(allUsersStocks)); // Caso o seja a primeira de determinada ação
+  }
+  return localStorage.setItem('usersStocks', JSON.stringify(
+    {[user.id] : [{...stock, quantity }]})); // Caso o seja a primeira compra do usuário
 }
 
 const sellOperation = () => {

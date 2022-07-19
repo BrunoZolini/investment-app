@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'
 import UserHeaderBar from './UserHeaderBar'
-
 
 export default function Header() {
   const [isUserClicked, setIsUserClicked] = useState(false)
   const [loading, setLoading] = useState(false)
-
   const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
@@ -14,8 +11,6 @@ export default function Header() {
     setCurrentUser(user);
     setLoading(true);
   }, []);
-
-
 
   return (
     <header>      
