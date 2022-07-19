@@ -21,7 +21,12 @@ useEffect(() => {
 }, [willBuy]);  
 
 const validateQuantity = (target) => {
-  const value = target.value.replace(/\+|-/ig, '');
+  let value = Math.max(1, Number(target.value));
+  if (!willBuy) {
+    const max = allUsersStocks[user.id].find(({ code }) => code === stock.code).quantity
+    value = Math.max(1, Math.min(max, Number(target.value)));
+  }
+  
   setQuantity(value)
 }
 
@@ -40,6 +45,13 @@ const buyOperation = () => {
 }
 
 const sellOperation = () => {
+  const i = allUsersStocks[user.id].findIndex(({ code }) => code === stock.code)
+  if (allUsersStocks[user.id][i].quantity === quantity) {
+    allUsersStocks[user.id] = allUsersStocks[user.id].filter(({ code }) => code !== stock.code);
+    return localStorage.setItem('usersStocks', JSON.stringify(allUsersStocks)); // Caso venda todas as ações
+  }
+  allUsersStocks[user.id][i].quantity = parseFloat(allUsersStocks[user.id][i].quantity) - parseFloat(quantity); 
+  return localStorage.setItem('usersStocks', JSON.stringify(allUsersStocks)); // Caso não venda todas as ações
   
 }
 

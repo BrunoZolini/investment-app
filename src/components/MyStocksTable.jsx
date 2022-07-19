@@ -10,6 +10,8 @@ export default function MyStocksTable() {
     const allUsersStocks = JSON.parse(localStorage.getItem('usersStocks')) || {};
     if (allUsersStocks[user.id]) {      
       setUserStocks(allUsersStocks[user.id]);
+    } else {
+      setUserStocks([]);
     }
     setLoading(true);
   }, []);
