@@ -33,11 +33,11 @@ export default function Registration() {
   const saveUsers = () => {
     const usersStorage = JSON.parse(localStorage.getItem('users')) || [];
     const user = {
+      id: usersStorage.length,
       email,
       name,
       password,
       lastConnection: '',
-      profileImg: '',
     }
     usersStorage.push(user)
     localStorage.setItem('users', JSON.stringify(usersStorage));
@@ -49,7 +49,7 @@ export default function Registration() {
     setIsRegistered(true);
     setTimeout(() => {
       history.push('/');
-    }, 2000);    
+    }, 1000);    
   };
 
   return (

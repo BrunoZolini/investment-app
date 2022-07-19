@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import context from '../context/myContext';
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 export default function Login() {
-  const { setCurrentUser } = useContext(context);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,17 +14,19 @@ export default function Login() {
     const usersStorage = JSON.parse(localStorage.getItem('users')) || [];
     setUsers(usersStorage)
 
-    const lastUser = usersStorage.reduce((acc, curr) => {
-      return (acc.lastConnection > curr.lastConnection) ? acc : curr
-  })
-    setEmail(lastUser.email);
+    if (usersStorage.length) {
+      const lastUser = usersStorage.reduce((acc, curr) => {
+        return (acc.lastConnection > curr.lastConnection) ? acc : curr
+      })
+      setEmail(lastUser.email);
+    }
   }, []);
 
   const saveUserLogin = () => {
-    const i = users.findIndex((user) => user.email === email);
-    users[i].lastConnection = new Date();
+    const user = users.find((user) => user.email === email);
+    user.lastConnection = new Date();
     localStorage.setItem('users', JSON.stringify(users));
-    setCurrentUser(users[i]);
+    localStorage.setItem('currentUser', JSON.stringify(user));
   }
 
   const handleLogIn = (e) => {
@@ -65,11 +65,10 @@ export default function Login() {
         </button>
       </form>
       <p>Não tem uma conta? 
-        <button
-          type="button"          
-          onClick={ () => history.push('/cadastro') }>
-            Cadastrar
-        </button>
+        <Link to="/cadastro">
+          Cadastrar
+        </Link>
+
       </p>    
     </div>
   );
