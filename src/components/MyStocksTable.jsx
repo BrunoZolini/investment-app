@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import NegotiateButtons from './NegotiateButtons';
 
 export default function MyStocksTable() {
-
   const [userStocks, setUserStocks] = useState([]);
-  const [loading, setLoading] = useState(false)
-
-
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser')) || {};
@@ -43,18 +41,10 @@ export default function MyStocksTable() {
                   <td>{stock.name}</td>
                   <td>{stock.category}</td>
                   <td>{parseFloat(stock.value).toFixed(2)}</td>
-                  <td>{stock.category}</td>
-                  <td>{parseFloat(stock.value).toFixed(2)}</td>
+                  <td>{stock.quantity}</td>
+                  <td>{(parseFloat(stock.value) * parseFloat(stock.quantity)).toFixed(2)}</td>
                   <td>
-                    <button
-                      type='button'
-                      onClick={() => console.log('teste')}
-                    >
-                      Comprar
-                    </button>
-                    <button type='button'>
-                      Vender
-                    </button>
+                    <NegotiateButtons stock={ stock }/>
                   </td>
                 </tr>
               ))}

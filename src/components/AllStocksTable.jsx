@@ -1,20 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { mockDB } from '../helpers/mockDB';
-import { useHistory } from 'react-router-dom';
-import context from '../context/myContext';
+import NegotiateButtons from './NegotiateButtons';
 
 
 export default function AllStocksTable() {
-  const { setWillBuy } = useContext(context)
-  const history = useHistory();
+  const [userStocks, setUserStocks] = useState([]);
 
-  const handleBuyOrSell = (stock, operation) => {
-    if(operation === 'buy') setWillBuy(true)
-    if(operation === 'sell') setWillBuy(false)
-
-    history.push(`/acao/${stock.code}`)
-  }
-
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('currentUser')) || {};
+    const allUsersStocks = JSON.parse(localStorage.getItem('usersStocks')) || {[user.id]: []};
+    setUserStocks(allUsersStocks[user.id]);
+    
+  }, []);
 
   return (
     <div>
@@ -38,18 +35,11 @@ export default function AllStocksTable() {
                 <td>{stock.category}</td>
                 <td>{parseFloat(stock.value).toFixed(2)}</td>
                 <td>
-                  <button
-                    type='button'
-                    onClick={() => handleBuyOrSell(stock, 'buy')}
-                  >
-                    Comprar
-                  </button>
-                  <button
-                    type='button'
-                    onClick={() => handleBuyOrSell(stock, 'sell')}
-                  >
-                    Vender
-                  </button>
+                  {userStocks.some(({ code }) => code === stock.code) ? (
+                    <NegotiateButtons stock={ stock }/>
+                  ): (
+                    <NegotiateButtons stock={ stock } isDisable/>
+                  )}
                 </td>              
               </tr>
             ))}

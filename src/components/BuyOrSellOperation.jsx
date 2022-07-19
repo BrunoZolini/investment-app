@@ -6,7 +6,7 @@ import context from '../context/myContext'
 export default function BuyOrSellOperation({ stock }) {
 const { willBuy, setIsConfirmed } = useContext(context)
 const [operation, setOperation] = useState()
-const [quantity, setQuantity] = useState(0)
+const [quantity, setQuantity] = useState(1)
 
 const history = useHistory();
 
@@ -37,8 +37,14 @@ const buyOperation = () => {
       {[user.id] : [{...stock, quantity }]})); // Caso o seja a primeira compra do usuário
 }
 
+const sellOperation = () => {
+  
+}
+
 const confirmOperation = () => {
   if(willBuy) buyOperation();
+  if(!willBuy) sellOperation();
+
   setIsConfirmed(true);
   setTimeout(() => {
     history.push('/acoes');
