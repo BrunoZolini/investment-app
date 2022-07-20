@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import context from "../context/myContext";
-import { mockDB } from "../helpers/mockDB";
-import NegotiateButtons from "./NegotiateButtons";
+import context from "../../context/myContext";
+import { mockDB } from "../../helpers/mockDB";
+import NegotiateButtons from "../NegotiateButtons";
 
 export default function AllStocksTable() {
   const [userStocks, setUserStocks] = useState([]);

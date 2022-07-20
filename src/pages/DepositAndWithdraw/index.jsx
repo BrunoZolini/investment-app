@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import Header from "../components/Header";
-import context from "../context/myContext";
+import Header from "../../components/Header";
+import context from "../../context/myContext";
 
 export default function DepositsAndWithdrawals() {
   const { currentUser, setCurrentUser } = useContext(context);

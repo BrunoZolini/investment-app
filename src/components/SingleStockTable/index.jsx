@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import context from "../context/myContext";
+import context from "../../context/myContext";
 
 export default function SingleStockTable({ stock }) {
   const { willBuy, setWillBuy, currentUser } = useContext(context);

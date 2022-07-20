@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
-import Header from "../components/Header";
-import SingleStockTable from "../components/SingleStockTable";
-import BuyOrSellOperation from "../components/BuyOrSellOperation";
-import { mockDB } from "../helpers/mockDB";
-import context from "../context/myContext";
+import Header from "../../components/Header";
+import SingleStockTable from "../../components/SingleStockTable";
+import BuyOrSellOperation from "../../components/BuyOrSellOperation";
+import { mockDB } from "../../helpers/mockDB";
+import context from "../../context/myContext";
 
 export default function BuyAndSellStock({
   match: {

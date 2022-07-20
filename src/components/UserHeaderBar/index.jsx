@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import context from "../context/myContext";
+import context from "../../context/myContext";
 export default function UserHeaderBar() {
   const {setCurrentUser} = useContext(context);
   return (

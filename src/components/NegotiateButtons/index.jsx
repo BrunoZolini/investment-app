@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import context from "../context/myContext";
+import context from "../../context/myContext";
 
 export default function NegotiateButtons({ stock, isDisable }) {
   const { setWillBuy } = useContext(context);

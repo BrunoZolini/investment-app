@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import context from "../context/myContext";
+import context from "../../context/myContext";
 
 export default function Login() {
   const [email, setEmail] = useState("");

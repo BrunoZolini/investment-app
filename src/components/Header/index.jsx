@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import context from "../context/myContext";
-import UserHeaderBar from "./UserHeaderBar";
+import context from "../../context/myContext";
+import UserHeaderBar from "../UserHeaderBar";
 
 export default function Header() {
   const [isUserClicked, setIsUserClicked] = useState(false);
