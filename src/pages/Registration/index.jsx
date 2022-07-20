@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
+import { ButtonDefault, ButtonBack } from "../../components/shared/Buttons";
+import * as C from "./styles";
+
 export default function Registration() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -53,56 +56,60 @@ export default function Registration() {
   };
 
   return (
-    <div>
-      {isRegistered && <p>Cadastrando Usuário...</p>}
-      <form>
-        <label htmlFor="email">
-          Email:
-          <input
-            type="text"
-            id="email"
-            onChange={({ target }) => setEmail(target.value)}
-          />
-        </label>
+    <C.Container>
+      <C.Content>
+        {isRegistered && <span>Cadastrando Usuário...</span>}
+        <h1>Cadastro</h1>
+        <form>
+          <label htmlFor="email">
+            Email:
+            <input
+              type="text"
+              id="email"
+              onChange={({ target }) => setEmail(target.value)}
+            />
+          </label>
 
-        <label htmlFor="name">
-          Nome:
-          <input
-            type="text"
-            id="name"
-            onChange={({ target }) => setName(target.value)}
-          />
-        </label>
+          <label htmlFor="name">
+            Nome:
+            <input
+              type="text"
+              id="name"
+              onChange={({ target }) => setName(target.value)}
+            />
+          </label>
 
-        <label htmlFor="password">
-          Senha:
-          <input
-            type="password"
-            id="password"
-            onChange={({ target }) => setPassword(target.value)}
-          />
-        </label>
+          <label htmlFor="password">
+            Senha:
+            <input
+              type="password"
+              id="password"
+              onChange={({ target }) => setPassword(target.value)}
+            />
+          </label>
 
-        <label htmlFor="confirmPassword">
-          Confirmar Senha:
-          <input
-            type="password"
-            id="confirmPassword"
-            onChange={({ target }) => setConfirmPassword(target.value)}
-          />
-        </label>
-
-        <button
-          type="submit"
-          disabled={isDisabled}
-          onClick={handleRegistration}
-        >
-          Cadastrar
-        </button>
-      </form>
-      <button type="button" onClick={() => history.push("/")}>
-        Voltar
-      </button>
-    </div>
+          <label htmlFor="confirmPassword">
+            Confirmar Senha:
+            <input
+              type="password"
+              id="confirmPassword"
+              onChange={({ target }) => setConfirmPassword(target.value)}
+            />
+          </label>
+          <div>
+            <ButtonDefault
+              type="submit"
+              disabled={isDisabled}
+              onClick={handleRegistration}
+            >
+              Cadastrar
+            </ButtonDefault>
+            <ButtonBack type="button" onClick={() => history.push("/")}>
+              Voltar
+            </ButtonBack>
+          </div>
+        </form>
+      </C.Content>
+    </C.Container>
   );
 }

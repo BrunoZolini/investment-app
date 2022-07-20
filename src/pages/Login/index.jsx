@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { ButtonDefault } from "../../components/shared/Buttons";
 import context from "../../context/myContext";
+
+import * as C from "./styles";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -28,15 +31,14 @@ export default function Login() {
     user.lastConnection = new Date();
     localStorage.setItem("users", JSON.stringify(users));
     localStorage.setItem("currentUser", JSON.stringify(user));
-    setCurrentUser(user)
-
+    setCurrentUser(user);
   };
 
   const handleLogIn = (e) => {
     e.preventDefault();
     if (
       users.some((user) => user.email === email && user.password === password)
-    ) {      
+    ) {
       saveUserLogin();
       history.push("/acoes");
     } else {
@@ -45,28 +47,31 @@ export default function Login() {
   };
 
   return (
-    <div>
-      {deniedUser && <p> Email ou senha inválidos</p>}
-      <form>
-        <input
-          placeholder="exemplo@exemplo.com"
-          type="email"
-          value={email}
-          onChange={({ target }) => setEmail(target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={({ target }) => setPassword(target.value)}
-        />
-        <button type="submit" onClick={handleLogIn}>
-          Entrar
-        </button>
-      </form>
-      <p>
-        Não tem uma conta?
-        <Link to="/cadastro">Cadastrar</Link>
-      </p>
-    </div>
+    <C.Container>
+      <div>
+        <h1>BZ Investments</h1>
+        {deniedUser && <span> Email ou senha inválidos</span>}
+        <form>
+          <input
+            placeholder="exemplo@exemplo.com"
+            type="email"
+            value={email}
+            onChange={({ target }) => setEmail(target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={({ target }) => setPassword(target.value)}
+          />
+          <ButtonDefault type="submit" onClick={handleLogIn}>
+            Entrar
+          </ButtonDefault>
+        </form>
+        <p>
+          Não tem uma conta?
+          <Link to="/cadastro">Cadastrar</Link>
+        </p>
+      </div>
+    </C.Container>
   );
 }

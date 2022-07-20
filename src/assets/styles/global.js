@@ -6,6 +6,7 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    color: ${({ theme }) => theme.colors.color }
   }
 
   body {
@@ -15,5 +16,8 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
+    :disabled {
+      cursor: default;
+    }
   }
 `;

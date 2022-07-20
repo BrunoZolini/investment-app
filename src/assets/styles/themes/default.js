@@ -1,11 +1,12 @@
 const defaultTheme = {
   colors: {
-    background: "#EDF2F4",
+    background: "#4E4C4C",
+    color: "#FFFFFF",
     primary: {
-      background: "#3F3D56",
-      main: "#FF6584",
-      lighter: "#ffe2ed",
-      dark: "#b20425",
+      background: "#000000",
+      main: "#f8ed62",
+      lighter: "#0000FF",
+      dark: "#FF0000",
     },
   },
 };
