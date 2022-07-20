@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import context from "../context/myContext";
 
 export default function Login() {
-  const { setCurrentUser } = useContext(context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [users, setUsers] = useState("");
@@ -33,9 +31,7 @@ export default function Login() {
     e.preventDefault();
     if (
       users.some((user) => user.email === email && user.password === password)
-    ) {
-      const user = JSON.parse(localStorage.getItem("currentUser")) || {};
-      setCurrentUser(user);
+    ) {      
       saveUserLogin();
       history.push("/acoes");
     } else {
