@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <header>
       {loading && (
-        <button type="button" onClick={() => setIsUserClicked(!isUserClicked)}>
+        <div>
           <div>
             <p>{currentUser.name[0].toUpperCase()}</p>
             <p>{currentUser.name}</p>
@@ -22,7 +22,13 @@ export default function Header() {
           <p>
             Seu Saldo R$: {parseFloat(currentUser.accountBalance).toFixed(2)}
           </p>
-        </button>
+          <button
+            type="button"
+            onClick={() => setIsUserClicked(!isUserClicked)}
+          >
+            Menu
+          </button>
+        </div>
       )}
 
       {isUserClicked && <UserHeaderBar />}
