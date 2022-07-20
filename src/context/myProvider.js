@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import MyContext from "./myContext";
+/* eslint-disable react/jsx-no-constructed-context-values */
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import MyContext from './myContext';
 
 function Provider({ children }) {
   const [willBuy, setWillBuy] = useState(true);
@@ -17,7 +18,7 @@ function Provider({ children }) {
   };
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("currentUser")) || {};
+    const user = JSON.parse(localStorage.getItem('currentUser')) || {};
     setCurrentUser(user);
   }, []);
   return <MyContext.Provider value={state}>{children}</MyContext.Provider>;

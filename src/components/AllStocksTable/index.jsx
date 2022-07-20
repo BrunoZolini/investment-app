@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
-import context from "../../context/myContext";
-import { mockDB } from "../../helpers/mockDB";
-import NegotiateButtons from "../NegotiateButtons";
+import React, { useContext, useEffect, useState } from 'react';
+import context from '../../context/myContext';
+import { mockDB } from '../../helpers/mockDB';
+import NegotiateButtons from '../NegotiateButtons';
 
 export default function AllStocksTable() {
   const [userStocks, setUserStocks] = useState([]);
   const { currentUser } = useContext(context);
 
   useEffect(() => {
-    const allUsersStocks = JSON.parse(localStorage.getItem("usersStocks"));
+    const allUsersStocks = JSON.parse(localStorage.getItem('usersStocks'));
     if (allUsersStocks === null || !allUsersStocks[currentUser.id]) {
       setUserStocks([]);
     } else {

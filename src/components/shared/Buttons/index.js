@@ -1,11 +1,11 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const ButtonDefault = styled.button`
   width: 100%;
   height: 100%;
   color: #000000;
   margin-bottom: 5%;
-  background-color: ${({theme}) => theme.colors.primary.main };
+  background-color: ${({ theme }) => theme.colors.primary.main};
   border: 1px solid #000000;
   border-radius: 5px;
   font-size: 140%;
@@ -37,7 +37,6 @@ export const ButtonBack = styled.button`
   :active {
     background-color: #000000;
     border: 2px solid #e9d700;
-
   }
   :disabled {
     background-color: #00000040;

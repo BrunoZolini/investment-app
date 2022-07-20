@@ -1,16 +1,16 @@
-import React from "react";
-import Provider from "./context/myProvider";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import Provider from './context/myProvider';
 
-import Login from "./pages/Login";
-import Registration from "./pages/Registration";
-import StockList from "./pages/StockList";
-import BuyAndSellStock from "./pages/BuyAndSellStock";
-import DepositAndWithdraw from "./pages/DepositAndWithdraw";
+import Login from './pages/Login';
+import Registration from './pages/Registration';
+import StockList from './pages/StockList';
+import BuyAndSellStock from './pages/BuyAndSellStock';
+import DepositAndWithdraw from './pages/DepositAndWithdraw';
 
-import GlobalStyles from "./assets/styles/global";
-import defaultTheme from "./assets/styles/themes/default";
+import GlobalStyles from './assets/styles/global';
+import defaultTheme from './assets/styles/themes/default';
 
 function App() {
   return (

@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import context from "../../context/myContext";
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import context from '../../context/myContext';
+
 export default function UserHeaderBar() {
-  const {setCurrentUser} = useContext(context);
+  const { setCurrentUser } = useContext(context);
   return (
     <div>
       <nav>
@@ -16,11 +17,10 @@ export default function UserHeaderBar() {
           <li>
             <Link
               to="/"
-              onClick={() => {                
-                localStorage.setItem("currentUser", JSON.stringify({}))
-                setCurrentUser({})
-              }
-              }
+              onClick={() => {
+                localStorage.setItem('currentUser', JSON.stringify({}));
+                setCurrentUser({});
+              }}
             >
               Sair
             </Link>

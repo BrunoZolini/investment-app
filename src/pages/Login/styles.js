@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100vw;
@@ -29,7 +29,7 @@ export const Container = styled.div`
         outline: none;
         background-color: transparent;
         border-radius: 10px;
-        color: #FFFF00;
+        color: #ffff00;
         border: 2px solid #ffffff40;
         font-size: 130%;
         padding-left: 3%;
@@ -38,15 +38,15 @@ export const Container = styled.div`
           color: #ffffff40;
         }
         :valid {
-          color: #FFFF00;
+          color: #ffff00;
         }
         :hover {
-          border: 2px solid #FFFF0080;
-          color: #FFFF0080;
+          border: 2px solid #ffff0080;
+          color: #ffff0080;
         }
         :focus {
-          border: 2px solid #FFFF00;
-          color: #FFFF00;
+          border: 2px solid #ffff00;
+          color: #ffff00;
         }
       }
     }
@@ -56,18 +56,17 @@ export const Container = styled.div`
       min-width: 200px;
       max-width: 500px;
       font-weight: bold;
-      background-color: #FF6565;
-      border: 2px solid #AE1010;
+      background-color: #ff6565;
+      border: 2px solid #ae1010;
       padding: 20px;
     }
-  
+
     p {
       margin: 10px;
-      a{
+      a {
         margin: 10px;
-        color: #FFFF00;
+        color: #ffff00;
       }
     }
   }
 `;
-

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100vw;
@@ -26,7 +26,7 @@ export const Content = styled.div`
     padding: 5%;
     display: flex;
     flex-direction: column;
-      align-items: center;
+    align-items: center;
 
     label {
       display: flex;
@@ -66,19 +66,18 @@ export const Content = styled.div`
           color: #ffff00;
         }
       }
-    } 
+    }
     div {
       height: 50px;
-    }   
-
+    }
   }
   span {
     width: 80%;
     min-width: 200px;
     max-width: 250px;
     font-weight: bold;
-    background-color: #7BFF5A;
-    border: 2px solid #00FF00;
+    background-color: #7bff5a;
+    border: 2px solid #00ff00;
     padding: 20px;
   }
 `;

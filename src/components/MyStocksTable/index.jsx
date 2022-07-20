@@ -1,15 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
-import context from "../../context/myContext";
-import NegotiateButtons from "../NegotiateButtons";
+import React, { useContext, useEffect, useState } from 'react';
+import context from '../../context/myContext';
+import NegotiateButtons from '../NegotiateButtons';
 
 export default function MyStocksTable() {
-  const {currentUser} = useContext(context)
+  const { currentUser } = useContext(context);
   const [userStocks, setUserStocks] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const allUsersStocks =
-      JSON.parse(localStorage.getItem("usersStocks")) || {};
+      JSON.parse(localStorage.getItem('usersStocks')) || {};
     if (allUsersStocks[currentUser.id]) {
       setUserStocks(allUsersStocks[currentUser.id]);
     } else {

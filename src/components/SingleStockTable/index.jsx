@@ -1,18 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
-import context from "../../context/myContext";
+import React, { useContext, useEffect, useState } from 'react';
+import context from '../../context/myContext';
 
 export default function SingleStockTable({ stock }) {
   const { willBuy, setWillBuy, currentUser } = useContext(context);
   const [userStocks, setUserStocks] = useState([]);
 
   useEffect(() => {
-
     const allUsersStocks = JSON.parse(localStorage.getItem('usersStocks'));
-    if(allUsersStocks === null || !allUsersStocks[currentUser.id]) {
-      setUserStocks([])
-    }else {
+    if (allUsersStocks === null || !allUsersStocks[currentUser.id]) {
+      setUserStocks([]);
+    } else {
       setUserStocks(allUsersStocks[currentUser.id]);
-    }    
+    }
   }, [currentUser.id, willBuy]);
 
   return (
@@ -59,10 +58,7 @@ export default function SingleStockTable({ stock }) {
             {!willBuy && userStocks.length && (
               <>
                 <td>
-                  {
-                    userStocks.find(({ code }) => code === stock.code)
-                      .quantity
-                  }
+                  {userStocks.find(({ code }) => code === stock.code).quantity}
                 </td>
                 <td>
                   {(
