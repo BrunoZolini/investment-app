@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { mockDB } from '../helpers/mockDB';
-import NegotiateButtons from './NegotiateButtons';
-
+import React, { useEffect, useState } from "react";
+import { mockDB } from "../helpers/mockDB";
+import NegotiateButtons from "./NegotiateButtons";
 
 export default function AllStocksTable() {
   const [userStocks, setUserStocks] = useState([]);
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('currentUser')) || {};
-    const allUsersStocks = JSON.parse(localStorage.getItem('usersStocks')) || {[user.id]: []};
+    const user = JSON.parse(localStorage.getItem("currentUser")) || {};
+    const allUsersStocks = JSON.parse(localStorage.getItem("usersStocks")) || {
+      [user.id]: [],
+    };
     setUserStocks(allUsersStocks[user.id]);
-    
   }, []);
 
   return (
@@ -27,22 +27,21 @@ export default function AllStocksTable() {
           </tr>
         </thead>
         <tbody>
-          { mockDB
-            .map((stock) => (
-              <tr key={ stock.id }>
-                <td>{stock.code}</td>
-                <td>{stock.name}</td>
-                <td>{stock.category}</td>
-                <td>{parseFloat(stock.value).toFixed(2)}</td>
-                <td>
-                  {userStocks.some(({ code }) => code === stock.code) ? (
-                    <NegotiateButtons stock={ stock }/>
-                  ): (
-                    <NegotiateButtons stock={ stock } isDisable/>
-                  )}
-                </td>              
-              </tr>
-            ))}
+          {mockDB.map((stock) => (
+            <tr key={stock.id}>
+              <td>{stock.code}</td>
+              <td>{stock.name}</td>
+              <td>{stock.category}</td>
+              <td>{parseFloat(stock.value).toFixed(2)}</td>
+              <td>
+                {userStocks.some(({ code }) => code === stock.code) ? (
+                  <NegotiateButtons stock={stock} />
+                ) : (
+                  <NegotiateButtons stock={stock} isDisable />
+                )}
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

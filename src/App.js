@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Registration from './pages/Registration';
 import StockList from './pages/StockList';
 import BuyAndSellStock from './pages/BuyAndSellStock';
+import DepositAndWithdraw from './pages/DepositAndWithdraw';
 
 
 function App() {
@@ -16,8 +17,8 @@ function App() {
             <Route exact path="/" component={ Login } />
             <Route exact path="/acoes" component={ StockList } />
             <Route exact path="/cadastro" component={ Registration } />
-            <Route exact path="/acao/:code" component={ BuyAndSellStock }
-          />
+            <Route exact path="/acao/:code" component={ BuyAndSellStock } />
+            <Route exact path="/banco" component={ DepositAndWithdraw } />
           </Switch>
         </BrowserRouter>
       </Provider>

@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import UserHeaderBar from './UserHeaderBar'
+import React, { useContext, useEffect, useState } from "react";
+import context from "../context/myContext";
+import UserHeaderBar from "./UserHeaderBar";
 
 export default function Header() {
-  const [isUserClicked, setIsUserClicked] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [currentUser, setCurrentUser] = useState({});
+  const [isUserClicked, setIsUserClicked] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { currentUser } = useContext(context);
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('currentUser')) || {};
-    setCurrentUser(user);
     setLoading(true);
-  }, []);
+  }, [currentUser]);
 
   return (
-    <header>      
-        { loading  &&
-          <button
-          type="button"
-          onClick={() => setIsUserClicked(!isUserClicked)}
-          >            
+    <header>
+      {loading && (
+        <button type="button" onClick={() => setIsUserClicked(!isUserClicked)}>
+          <div>
             <p>{currentUser.name[0].toUpperCase()}</p>
             <p>{currentUser.name}</p>
-          </button>
-        }
-        {isUserClicked && <UserHeaderBar />}
+          </div>
+          <p>Seu Saldo R$: {currentUser.accountBalance}</p>
+        </button>
+      )}
+
+      {isUserClicked && <UserHeaderBar />}
     </header>
-  )
+  );
 }
