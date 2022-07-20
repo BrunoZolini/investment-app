@@ -70,5 +70,15 @@ export const Content = styled.div`
     div {
       height: 50px;
     }   
+
+  }
+  span {
+    width: 80%;
+    min-width: 200px;
+    max-width: 250px;
+    font-weight: bold;
+    background-color: #7BFF5A;
+    border: 2px solid #00FF00;
+    padding: 20px;
   }
 `;

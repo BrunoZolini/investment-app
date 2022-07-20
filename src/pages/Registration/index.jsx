@@ -89,8 +89,8 @@ export default function Registration() {
   return (
     <C.Container>
       <C.Content>
-        {isRegistered && <span>Cadastrando Usuário...</span>}
         <h1>Cadastro</h1>
+        {!isRegistered && <span>Cadastrando Usuário...</span>}
         <form>
           <label htmlFor="email">
             Email:
