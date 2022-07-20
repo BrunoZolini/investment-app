@@ -11,8 +11,6 @@ export default function Header() {
     setLoading(true);
   }, [currentUser]);
 
-  console.log(currentUser)
-
   return (
     <header>
       {loading && (
