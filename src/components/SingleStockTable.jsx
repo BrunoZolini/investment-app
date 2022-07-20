@@ -2,16 +2,18 @@ import React, { useContext, useEffect, useState } from "react";
 import context from "../context/myContext";
 
 export default function SingleStockTable({ stock }) {
-  const { willBuy, setWillBuy } = useContext(context);
-  const [currentStock, setCurrentStock] = useState([]);
+  const { willBuy, setWillBuy, currentUser } = useContext(context);
+  const [userStocks, setUserStocks] = useState([]);
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("currentUser")) || {};
-    const allUsersStocks = JSON.parse(localStorage.getItem("usersStocks")) || {
-      [user.id]: [],
-    };
-    setCurrentStock(allUsersStocks[user.id]);
-  }, [willBuy]);
+
+    const allUsersStocks = JSON.parse(localStorage.getItem('usersStocks'));
+    if(allUsersStocks === null || !allUsersStocks[currentUser.id]) {
+      setUserStocks([])
+    }else {
+      setUserStocks(allUsersStocks[currentUser.id]);
+    }    
+  }, [currentUser.id, willBuy]);
 
   return (
     <div>
@@ -27,7 +29,7 @@ export default function SingleStockTable({ stock }) {
           type="button"
           onClick={() => setWillBuy(!willBuy)}
           disabled={
-            !willBuy || !currentStock.some(({ code }) => code === stock.code)
+            !willBuy || !userStocks.some(({ code }) => code === stock.code)
           }
         >
           Vender
@@ -54,11 +56,11 @@ export default function SingleStockTable({ stock }) {
             <td>{stock.name}</td>
             <td>{stock.category}</td>
             <td>{parseFloat(stock.value).toFixed(2)}</td>
-            {!willBuy && currentStock.length && (
+            {!willBuy && userStocks.length && (
               <>
                 <td>
                   {
-                    currentStock.find(({ code }) => code === stock.code)
+                    userStocks.find(({ code }) => code === stock.code)
                       .quantity
                   }
                 </td>
@@ -66,7 +68,7 @@ export default function SingleStockTable({ stock }) {
                   {(
                     parseFloat(stock.value) *
                     parseFloat(
-                      currentStock.find(({ code }) => code === stock.code)
+                      userStocks.find(({ code }) => code === stock.code)
                         .quantity
                     )
                   ).toFixed(2)}

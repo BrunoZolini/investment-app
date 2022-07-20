@@ -3,27 +3,26 @@ import { useHistory } from "react-router-dom";
 import context from "../context/myContext";
 
 export default function BuyOrSellOperation({ stock }) {
-  const { willBuy, setIsConfirmed } = useContext(context);
+  const { willBuy, setIsConfirmed, currentUser, setCurrentUser } =
+    useContext(context);
   const [operation, setOperation] = useState();
   const [quantity, setQuantity] = useState(1);
-  const [user, setUser] = useState({});
   const [allUsersStocks, setAllUsersStocks] = useState({});
 
   const history = useHistory();
 
   useEffect(() => {
-    const currUser = JSON.parse(localStorage.getItem("currentUser")) || {};
-    const usersStocks = JSON.parse(localStorage.getItem("usersStocks")) || {};
-
-    setUser(currUser);
+    const usersStocks = JSON.parse(localStorage.getItem("usersStocks")) || {
+      [currentUser.id]: [],
+    };
     setAllUsersStocks(usersStocks);
     setOperation(willBuy ? "Comprar" : "Vender");
-  }, [willBuy]);
+  }, [currentUser.id, willBuy]);
 
   const validateQuantity = (target) => {
     let value = Math.max(1, Number(target.value));
     if (!willBuy) {
-      const max = allUsersStocks[user.id].find(
+      const max = allUsersStocks[currentUser.id].find(
         ({ code }) => code === stock.code
       ).quantity;
       value = Math.max(1, Math.min(max, Number(target.value)));
@@ -32,54 +31,101 @@ export default function BuyOrSellOperation({ stock }) {
     setQuantity(value);
   };
 
+  const validateAccountBalance = () => {
+    const totalPrice = (parseFloat(stock.value) * quantity).toFixed(2);
+    if (currentUser.accountBalance < totalPrice) {
+      window.alert("Saldo da conta insuficiente!");
+      return true;
+    }
+    return false;
+  };
+
+  const buyBalanceUpdate = () => {
+    const totalPrice = parseFloat(stock.value) * quantity;
+    const newBalance = parseFloat(currentUser.accountBalance) - totalPrice;
+    currentUser.accountBalance = newBalance;
+    const usersStorage = JSON.parse(localStorage.getItem("users")) || [];
+    const i = usersStorage.findIndex(({ id }) => id === currentUser.id);
+    usersStorage[i] = currentUser;
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    localStorage.setItem("users", JSON.stringify(usersStorage));
+    setCurrentUser(currentUser);
+  };
+
+  const sellBalanceUpdate = () => {
+    const totalPrice = parseFloat(stock.value) * quantity;
+    const newBalance =
+      parseFloat(currentUser.accountBalance) + parseFloat(totalPrice);
+    currentUser.accountBalance = newBalance;
+    const usersStorage = JSON.parse(localStorage.getItem("users")) || [];
+    const i = usersStorage.findIndex(({ id }) => id === currentUser.id);
+    usersStorage[i] = currentUser;
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    localStorage.setItem("users", JSON.stringify(usersStorage));
+    setCurrentUser(currentUser);
+  };
+
   const buyOperation = () => {
-    if (allUsersStocks[user.id]) {
-      if (allUsersStocks[user.id].some(({ code }) => code === stock.code)) {
-        const i = allUsersStocks[user.id].findIndex(
+    if (validateAccountBalance()) return true;
+    if (allUsersStocks[currentUser.id]) {
+      if (
+        allUsersStocks[currentUser.id].some(({ code }) => code === stock.code)
+      ) {
+        const i = allUsersStocks[currentUser.id].findIndex(
           ({ code }) => code === stock.code
         );
-        allUsersStocks[user.id][i].quantity =
-          parseFloat(allUsersStocks[user.id][i].quantity) +
+        allUsersStocks[currentUser.id][i].quantity =
+          parseFloat(allUsersStocks[currentUser.id][i].quantity) +
           parseFloat(quantity);
+        buyBalanceUpdate();
         return localStorage.setItem(
           "usersStocks",
           JSON.stringify(allUsersStocks)
         ); // Caso o seja uma compra repetida
       }
-      allUsersStocks[user.id].push({ ...stock, quantity });
+      allUsersStocks[currentUser.id].push({ ...stock, quantity });
+      buyBalanceUpdate();
       return localStorage.setItem(
         "usersStocks",
         JSON.stringify(allUsersStocks)
       ); // Caso o seja a primeira de determinada ação
     }
+    buyBalanceUpdate();
     return localStorage.setItem(
       "usersStocks",
-      JSON.stringify({ [user.id]: [{ ...stock, quantity }] })
+      JSON.stringify({
+        ...allUsersStocks,
+        [currentUser.id]: [{ ...stock, quantity }],
+      })
     ); // Caso o seja a primeira compra do usuário
   };
 
   const sellOperation = () => {
-    const i = allUsersStocks[user.id].findIndex(
+    const i = allUsersStocks[currentUser.id].findIndex(
       ({ code }) => code === stock.code
     );
-    if (allUsersStocks[user.id][i].quantity === quantity) {
-      allUsersStocks[user.id] = allUsersStocks[user.id].filter(
+    if (allUsersStocks[currentUser.id][i].quantity === quantity) {
+      allUsersStocks[currentUser.id] = allUsersStocks[currentUser.id].filter(
         ({ code }) => code !== stock.code
       );
+      sellBalanceUpdate();
       return localStorage.setItem(
         "usersStocks",
         JSON.stringify(allUsersStocks)
       ); // Caso venda todas as ações
     }
-    allUsersStocks[user.id][i].quantity =
-      parseFloat(allUsersStocks[user.id][i].quantity) - parseFloat(quantity);
+    allUsersStocks[currentUser.id][i].quantity =
+      parseFloat(allUsersStocks[currentUser.id][i].quantity) -
+      parseFloat(quantity);
+    sellBalanceUpdate();
     return localStorage.setItem("usersStocks", JSON.stringify(allUsersStocks)); // Caso não venda todas as ações
   };
 
   const confirmOperation = () => {
-    if (willBuy) buyOperation();
+    if (willBuy) {
+      if (buyOperation()) return;
+    }
     if (!willBuy) sellOperation();
-
     setIsConfirmed(true);
     setTimeout(() => {
       history.push("/acoes");

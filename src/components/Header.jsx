@@ -19,7 +19,9 @@ export default function Header() {
             <p>{currentUser.name[0].toUpperCase()}</p>
             <p>{currentUser.name}</p>
           </div>
-          <p>Seu Saldo R$: {currentUser.accountBalance}</p>
+          <p>
+            Seu Saldo R$: {parseFloat(currentUser.accountBalance).toFixed(2)}
+          </p>
         </button>
       )}
 

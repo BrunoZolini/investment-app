@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
+import context from "../context/myContext";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [users, setUsers] = useState("");
   const [deniedUser, setDeniedUser] = useState(false);
+  const { setCurrentUser } = useContext(context);
+
   const history = useHistory();
 
   useEffect(() => {
@@ -25,6 +28,8 @@ export default function Login() {
     user.lastConnection = new Date();
     localStorage.setItem("users", JSON.stringify(users));
     localStorage.setItem("currentUser", JSON.stringify(user));
+    setCurrentUser(user)
+
   };
 
   const handleLogIn = (e) => {

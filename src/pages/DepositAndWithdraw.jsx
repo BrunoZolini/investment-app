@@ -34,7 +34,7 @@ export default function DepositsAndWithdrawals() {
     const newBalance = currentUser.accountBalance + value;
     currentUser.accountBalance = newBalance;
     const usersStorage = JSON.parse(localStorage.getItem("users")) || [];
-    const i = usersStorage.findIndex(({ code }) => code === currentUser.code);
+    const i = usersStorage.findIndex(({ id }) => id === currentUser.id);
     usersStorage[i] = currentUser;
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
     localStorage.setItem("users", JSON.stringify(usersStorage));
@@ -45,7 +45,7 @@ export default function DepositsAndWithdrawals() {
     const newBalance = currentUser.accountBalance - value;
     currentUser.accountBalance = newBalance;
     const usersStorage = JSON.parse(localStorage.getItem("users")) || [];
-    const i = usersStorage.findIndex(({ code }) => code === currentUser.code);
+    const i = usersStorage.findIndex(({ id }) => id === currentUser.id);
     usersStorage[i] = currentUser;
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
     localStorage.setItem("users", JSON.stringify(usersStorage));
