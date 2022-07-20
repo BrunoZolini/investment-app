@@ -6,7 +6,7 @@ export const ButtonDefault = styled.button`
   color: #000000;
   margin-bottom: 5%;
   background-color: ${({theme}) => theme.colors.primary.main };
-  border: none;
+  border: 1px solid #000000;
   border-radius: 5px;
   font-size: 140%;
   transition: all 0.2s ease-in;
