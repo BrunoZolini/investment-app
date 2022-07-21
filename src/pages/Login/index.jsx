@@ -4,6 +4,7 @@ import { ButtonDefault } from '../../components/shared/Buttons';
 import context from '../../context/myContext';
 
 import * as C from './styles';
+import LogoCompleta from '../../assets/images/LogoCompleta.png'
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -49,7 +50,7 @@ export default function Login() {
   return (
     <C.Container>
       <div>
-        <h1>BZ Investments</h1>
+        <img src={LogoCompleta} alt="BZinvestment-logo" />
         {deniedUser && <span> Email ou senha inválidos</span>}
         <form>
           <input

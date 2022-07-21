@@ -61,6 +61,13 @@ export const Container = styled.div`
       padding: 20px;
     }
 
+    img {
+      width: 80%;
+      max-width: 400px;
+      border-radius: 20px;
+      margin-bottom: 5px;
+    }
+
     p {
       margin: 10px;
       a {
