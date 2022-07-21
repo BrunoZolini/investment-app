@@ -50,7 +50,10 @@ export const Table = styled.table`
     padding: 4px;
   }  
 
-  @media(max-width: 600px) {
+  @media(max-width: 700px) {
+    font-size: 12px;
+  }
+  @media(max-width: 550px) {
     font-size: 7px;
   }
 `;

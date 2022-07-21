@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   height: 600px;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   background-color: #4e4c4c60;
   display: flex;
   flex-direction: column;
