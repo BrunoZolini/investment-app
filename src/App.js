@@ -19,7 +19,7 @@ function App() {
         <Provider>
           <BrowserRouter>
             <Switch>
-              <Route exact path="/login" component={Login} />
+              <Route exact path="/" component={Login} />
               <Route exact path="/acoes" component={StockList} />
               <Route exact path="/cadastro" component={Registration} />
               <Route exact path="/acao/:code" component={BuyAndSellStock} />

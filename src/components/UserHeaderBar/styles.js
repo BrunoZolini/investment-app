@@ -26,4 +26,20 @@ export const Container = styled.nav`
       color: #ffff00;
     }
   }
+  button {
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 18px;
+    padding: 5px 20px 5px 0;
+    transition: all 0.2s ease-in;
+    :hover {
+      color: #ffff0080;
+    }
+    :focus {
+      color: #ffff00;
+    }    
+  }
 `;

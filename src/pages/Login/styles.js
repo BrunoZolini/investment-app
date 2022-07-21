@@ -50,7 +50,12 @@ export const Container = styled.div`
         }
       }
     }
-
+    p {
+      font-size: large;
+      a {
+        font-weight: 700;
+      }
+    }
     span {
       width: 80%;
       min-width: 200px;

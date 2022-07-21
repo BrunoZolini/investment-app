@@ -86,7 +86,7 @@ export default function Registration() {
       saveUsers();
       setIsRegistered(true);
       setTimeout(() => {
-        history.push('/login');
+        history.push('/');
       }, 1000);
     }
   };
@@ -136,7 +136,7 @@ export default function Registration() {
             <ButtonDefault type="submit" onClick={handleRegistration}>
               Cadastrar
             </ButtonDefault>
-            <ButtonBack type="button" onClick={() => history.push('/login')}>
+            <ButtonBack type="button" onClick={() => history.push('/')}>
               Voltar
             </ButtonBack>
           </div>

@@ -26,7 +26,10 @@ export default function Header() {
               <p>{currentUser.name}</p>
             </C.User>
             <C.Balance>
-              Seu Saldo <span>R$: {parseFloat(currentUser.accountBalance).toFixed(2)}</span>
+              Seu Saldo{' '}
+              <span>
+                R$: {parseFloat(currentUser.accountBalance).toFixed(2)}
+              </span>
             </C.Balance>
           </div>
           <C.MenuButton
@@ -38,7 +41,6 @@ export default function Header() {
           {isUserClicked && <UserHeaderBar />}
         </C.Aside>
       )}
-
     </C.Container>
   );
 }
