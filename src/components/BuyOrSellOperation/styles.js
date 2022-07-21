@@ -16,8 +16,7 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #4e4c4c;
-  margin-top: 2%;
-  
+  margin-top: 2%;  
 `;
 
 export const Operation = styled.div`
@@ -99,4 +98,5 @@ export const Confirm = styled.div`
   background-color: #7bff5a;
   border: 2px solid #00ff00;
   padding: 10px;
+  margin-top: 2%;
 `;

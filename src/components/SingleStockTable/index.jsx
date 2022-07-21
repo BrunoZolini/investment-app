@@ -28,7 +28,7 @@ export default function SingleStockTable({ stock }) {
             {!willBuy && (
               <>
                 <th>Quantidade</th>
-                <th>Valor Total</th>
+                <th>Valor Total (R$)</th>
               </>
             )}
           </tr>

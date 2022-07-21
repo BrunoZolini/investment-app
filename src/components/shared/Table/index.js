@@ -51,7 +51,7 @@ export const Table = styled.table`
   }  
 
   @media(max-width: 600px) {
-    font-size: 7.8px;
+    font-size: 7px;
   }
 `;
 
