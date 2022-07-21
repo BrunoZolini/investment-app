@@ -20,7 +20,7 @@ export default function Header() {
       <img src={LogoSimples} alt="BZInvestimentos-logo" />
       {loading && (
         <C.Aside>
-          <div>
+          <C.Teste>
             <C.User>
               <span>{currentUser.name[0].toUpperCase()}</span>
               <p>{currentUser.name}</p>
@@ -31,7 +31,7 @@ export default function Header() {
                 R$: {parseFloat(currentUser.accountBalance).toFixed(2)}
               </span>
             </C.Balance>
-          </div>
+          </C.Teste>
           <C.MenuButton
             type="button"
             onClick={() => setIsUserClicked(!isUserClicked)}

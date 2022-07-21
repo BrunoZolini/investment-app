@@ -16,7 +16,7 @@ export default function NegotiateButtons({ stock, isDisable }) {
 
   return (
     <C.Container>
-      <C.Buy type="button" onClick={() => handleBuyOrSell(stock, 'buy')}>
+      <C.Buy type="button" onClick={() => handleBuyOrSell('buy')}>
         Comprar
       </C.Buy>
       <C.Sell

@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import context from '../../context/myContext';
 import * as T from '../shared/Table';
+import * as C from './styles';
 
 export default function SingleStockTable({ stock }) {
-  const { willBuy, setWillBuy, currentUser } = useContext(context);
+  const { willBuy, currentUser } = useContext(context);
   const [userStocks, setUserStocks] = useState([]);
 
   useEffect(() => {
@@ -16,25 +17,8 @@ export default function SingleStockTable({ stock }) {
   }, [currentUser.id, willBuy]);
 
   return (
-    <div>
-      <div>
-        <button
-          type="button"
-          onClick={() => setWillBuy(!willBuy)}
-          disabled={willBuy}
-        >
-          Comprar
-        </button>
-        <button
-          type="button"
-          onClick={() => setWillBuy(!willBuy)}
-          disabled={
-            !willBuy || !userStocks.some(({ code }) => code === stock.code)
-          }
-        >
-          Vender
-        </button>
-      </div>
+    <C.Container>      
+        <h2>Ação</h2>
       <T.Table>
         <thead>
           <tr>
@@ -60,19 +44,19 @@ export default function SingleStockTable({ stock }) {
                   {userStocks.find(({ code }) => code === stock.code).quantity}
                 </T.Quantity>
                 <T.TotalValue>
-                  {(
+                  {`${(
                     parseFloat(stock.value) *
                     parseFloat(
                       userStocks.find(({ code }) => code === stock.code)
                         .quantity
                     )
-                  ).toFixed(2)}
+                  ).toFixed(2)}`}
                 </T.TotalValue>
               </>
             )}
           </tr>
         </tbody>
       </T.Table>
-    </div>
+    </C.Container>
   );
 }

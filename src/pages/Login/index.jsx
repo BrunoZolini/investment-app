@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { ButtonDefault } from '../../components/shared/Buttons';
 import context from '../../context/myContext';
-
 import * as C from './styles';
 import LogoCompleta from '../../assets/images/LogoCompleta.png'
 

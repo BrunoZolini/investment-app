@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../../components/Header';
 import SingleStockTable from '../../components/SingleStockTable';
+import SwitchBuySell from '../../components/SwitchBuySell';
 import BuyOrSellOperation from '../../components/BuyOrSellOperation';
 import { mockDB } from '../../helpers/mockDB';
-import context from '../../context/myContext';
+import * as C from './styles';
 
 export default function BuyAndSellStock({
   match: {
@@ -12,7 +13,6 @@ export default function BuyAndSellStock({
   },
 }) {
   const [stock, setStock] = useState({});
-  const { isConfirmed } = useContext(context);
 
   useEffect(() => {
     const currentStock = mockDB.find((item) => item.code === code);
@@ -20,13 +20,14 @@ export default function BuyAndSellStock({
   }, [code]);
 
   return (
-    <div>
+    <C.Container>
       <Header />
-      {isConfirmed && <p>Operação realizada com sucesso!</p>}
-
-      <SingleStockTable stock={stock} />
-      <BuyOrSellOperation stock={stock} />
-    </div>
+      <SwitchBuySell stock={stock} />
+      <C.Content>
+        <SingleStockTable stock={stock} />
+        <BuyOrSellOperation stock={stock} />
+      </C.Content>
+    </C.Container>
   );
 }
 

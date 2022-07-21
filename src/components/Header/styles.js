@@ -16,15 +16,21 @@ export const Container = styled.header`
 
 export const Aside = styled.div`
   display: flex;
-  min-width: 220px;
+  min-width: 220px;  
 `
+
+export const Teste = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
 
 export const User = styled.div`
   max-width: 150px;
   display: flex;
   border: 2px solid yellow;
   border-radius: 30px;
-  padding: 5px 5px 5px 5px;
+  padding: 5px 25px 5px 5px;
   align-items: center;
   margin-bottom: 5px;
   font-weight: bold;

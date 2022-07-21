@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import context from '../../context/myContext';
+import * as C from './styles';
+import { ButtonDefault, ButtonBack } from '../shared/Buttons';
 
 export default function BuyOrSellOperation({ stock }) {
-  const { willBuy, setIsConfirmed, currentUser, setCurrentUser } =
+  const { willBuy, setIsConfirmed, currentUser, setCurrentUser, isConfirmed } =
     useContext(context);
   const [operation, setOperation] = useState();
   const [quantity, setQuantity] = useState(1);
@@ -135,25 +137,34 @@ export default function BuyOrSellOperation({ stock }) {
   };
 
   return (
-    <div>
-      <label htmlFor={operation}>
-        {operation}
-        <input
-          type="number"
-          id={operation}
-          value={quantity}
-          onChange={({ target }) => validateQuantity(target)}
-        />
-      </label>
-      <p>Valor Total: R$ {(parseFloat(stock.value) * quantity).toFixed(2)}</p>
-      <div>
-        <button type="button" onClick={() => history.push('/acoes')}>
-          Voltar
-        </button>
-        <button type="button" onClick={confirmOperation}>
-          Confirmar
-        </button>
-      </div>
-    </div>
+    <C.Container>
+      {isConfirmed && <C.Confirm>Operação realizada com sucesso!</C.Confirm>}
+      <C.Content>
+        <C.Operation operationColor={willBuy ? 'blue' : 'red'}>
+          <h2>{operation}</h2>
+          <label htmlFor={operation}>
+            Quantidade
+            <input
+              type="number"
+              id={operation}
+              value={quantity}
+              onChange={({ target }) => validateQuantity(target)}
+            />
+          </label>
+          <p>
+            Valor Total da {willBuy ? 'Compra: ' : 'Venda: ' }
+            <span>R$ {(parseFloat(stock.value) * quantity).toFixed(2)}</span>
+          </p>
+        </C.Operation>
+        <C.ButtonsContainer>
+          <ButtonBack type="button" onClick={() => history.push('/acoes')}>
+            Voltar
+          </ButtonBack>
+          <ButtonDefault type="button" onClick={confirmOperation}>
+            Confirmar
+          </ButtonDefault>
+        </C.ButtonsContainer>
+      </C.Content>
+    </C.Container>
   );
 }
