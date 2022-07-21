@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import context from '../../context/myContext';
+import * as C from './styles';
 
 export default function NegotiateButtons({ stock, isDisable }) {
   const { setWillBuy } = useContext(context);
@@ -14,17 +15,17 @@ export default function NegotiateButtons({ stock, isDisable }) {
   };
 
   return (
-    <>
-      <button type="button" onClick={() => handleBuyOrSell(stock, 'buy')}>
+    <C.Container>
+      <C.Buy type="button" onClick={() => handleBuyOrSell(stock, 'buy')}>
         Comprar
-      </button>
-      <button
+      </C.Buy>
+      <C.Sell
         type="button"
         onClick={() => handleBuyOrSell('sell')}
         disabled={isDisable}
       >
         Vender
-      </button>
-    </>
+      </C.Sell>
+    </C.Container>
   );
 }

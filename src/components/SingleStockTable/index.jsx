@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import context from '../../context/myContext';
+import * as T from '../shared/Table';
 
 export default function SingleStockTable({ stock }) {
   const { willBuy, setWillBuy, currentUser } = useContext(context);
@@ -34,13 +35,12 @@ export default function SingleStockTable({ stock }) {
           Vender
         </button>
       </div>
-      <table>
+      <T.Table>
         <thead>
           <tr>
             <th>Código</th>
             <th>Empresa</th>
-            <th>Categoria</th>
-            <th>Valor Unitário</th>
+            <th>Vlr Unit. (R$)</th>
             {!willBuy && (
               <>
                 <th>Quantidade</th>
@@ -51,16 +51,15 @@ export default function SingleStockTable({ stock }) {
         </thead>
         <tbody>
           <tr>
-            <td>{stock.code}</td>
-            <td>{stock.name}</td>
-            <td>{stock.category}</td>
-            <td>{parseFloat(stock.value).toFixed(2)}</td>
+            <T.Code>{stock.code}</T.Code>
+            <T.Name>{stock.name}</T.Name>
+            <T.UnitValue>{parseFloat(stock.value).toFixed(2)}</T.UnitValue>
             {!willBuy && userStocks.length && (
               <>
-                <td>
+                <T.Quantity>
                   {userStocks.find(({ code }) => code === stock.code).quantity}
-                </td>
-                <td>
+                </T.Quantity>
+                <T.TotalValue>
                   {(
                     parseFloat(stock.value) *
                     parseFloat(
@@ -68,12 +67,12 @@ export default function SingleStockTable({ stock }) {
                         .quantity
                     )
                   ).toFixed(2)}
-                </td>
+                </T.TotalValue>
               </>
             )}
           </tr>
         </tbody>
-      </table>
+      </T.Table>
     </div>
   );
 }
