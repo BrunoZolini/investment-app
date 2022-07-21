@@ -10,7 +10,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  width: fit-content;
+  width: 100%;
   max-width: 800px;
   height: 100vh;
   display: flex;

@@ -1,20 +1,5 @@
 import styled from 'styled-components';
 
-export const Table = styled.table`
-  padding: 10px;
-  width: 100%;
-  tr {
-    width: 100%;
-    text-align: center;
-    white-space: nowrap;
-  }
-  th {
-    background-color: #4e4c4c70;
-    border-radius: 5px;
-    padding: 4px;
-  }  
-`;
-
 export const Code = styled.td`
   background-color: yellow;
   color: black;
@@ -49,3 +34,25 @@ export const TotalValue = styled.td`
   border-radius: 5px;
   font-weight: 700;
 `;
+
+export const Table = styled.table`
+  padding: 10px;
+  width: 100%;
+  tr {
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    
+  }
+  th {
+    background-color: #4e4c4c70;
+    border-radius: 5px;
+    padding: 4px;
+  }  
+
+  @media(max-width: 600px) {
+    font-size: 7.8px;
+  }
+`;
+
+
