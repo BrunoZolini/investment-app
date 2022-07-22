@@ -11,6 +11,10 @@ Front-end:
 
 > Desenvolvido usando: React, ContentAPI, JavaScript
 
+
+<details>
+  <summary><h2>🛠 Como Executar o Projeto</h2></summary><br />
+  
 ## Clonando o Repositório
 
 ```
@@ -28,10 +32,11 @@ npm install
     npm start
   ```
 
-## Executando Testes
+  ## Executando Testes
 
 * Para rodar todos os testes:
 
   ```
     npm test
   ```
+</details>
