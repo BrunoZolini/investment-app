@@ -46,3 +46,9 @@ export const ButtonBack = styled.button`
     color: #00000040;
   }
 `;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  width: 80%;
+  margin-top: 35px;
+`;

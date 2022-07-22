@@ -2,6 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header';
 import context from '../../context/myContext';
+import * as C from './styles';
+import * as S from '../../components/shared/Switch';
+import * as B from '../../components/shared/Buttons';
+
 
 export default function DepositsAndWithdrawals() {
   const { currentUser, setCurrentUser } = useContext(context);
@@ -50,6 +54,9 @@ export default function DepositsAndWithdrawals() {
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
     localStorage.setItem('users', JSON.stringify(usersStorage));
     setCurrentUser(currentUser);
+    if (newBalance === 0) {
+      setWillDeposit(!willDeposit)
+    }
   };
 
   const confirmOperation = () => {
@@ -63,37 +70,53 @@ export default function DepositsAndWithdrawals() {
   };
 
   return (
-    <div>
+    <C.Container>
       <Header />
-      {isConfirmed && <p>Operação Confirmada!</p>}
-      <h2>Depósitos e Retiradas</h2>
-      <div>
-        <button type="button" onClick={changeOperation} disabled={willDeposit}>
-          Depositar
-        </button>
-        <button type="button" onClick={changeOperation} disabled={!willDeposit}>
-          Retirar
-        </button>
-        <label htmlFor="value">
-          Valor R$:
-          <input
-            type="number"
-            id="value"
-            value={inputValue}
-            onChange={({ target }) => validateQuantity(target)}
-          />
-        </label>
-        <button type="button" onClick={() => history.push('/acoes')}>
-          Voltar
-        </button>
-        <button
+      <C.SwitchContainer>
+        <S.BlueSwitch
           type="button"
-          disabled={inputValue === 0}
-          onClick={confirmOperation}
+          onClick={changeOperation}
+          disabled={willDeposit}
         >
-          Confirmar
-        </button>
-      </div>
-    </div>
+          Depositar
+        </S.BlueSwitch>
+        {currentUser.accountBalance !== 0 && (
+          <S.RedSwitch
+            type="button"
+            onClick={changeOperation}
+            disabled={!willDeposit}
+          >
+            Sacar
+          </S.RedSwitch>
+        )}
+      </C.SwitchContainer>
+      <C.Content color={willDeposit ? '#0000FF80' : '#FF000080'}>
+        <C.Operation>
+          <h2>{willDeposit ? 'Depositar' : 'Sacar'}</h2>
+          {isConfirmed && <span>Operação Confirmada!</span>}
+          <label htmlFor="value">
+            Valor R$:
+            <input
+              type="number"
+              id="value"
+              value={inputValue}
+              onChange={({ target }) => validateQuantity(target)}
+            />
+          </label>
+          <B.ButtonsContainer>
+            <B.ButtonBack type="button" onClick={() => history.push('/acoes')}>
+              Voltar
+            </B.ButtonBack>
+            <B.ButtonDefault
+              type="button"
+              disabled={inputValue === 0}
+              onClick={confirmOperation}
+            >
+              Confirmar
+            </B.ButtonDefault>
+          </B.ButtonsContainer>
+        </C.Operation>
+      </C.Content>
+    </C.Container>
   );
 }

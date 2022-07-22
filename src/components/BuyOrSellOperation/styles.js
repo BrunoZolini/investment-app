@@ -28,7 +28,7 @@ export const Operation = styled.div`
   margin-bottom: 5px;
   h2 {
     width: 100%;
-    background-color: ${(props) => props.operationColor };
+    background-color: ${(props) => props.color };
     text-align: center;
     padding: 8%;
     margin-bottom: 10%;
@@ -82,12 +82,6 @@ export const Operation = styled.div`
       }
     }
   
-`;
-
-export const ButtonsContainer = styled.div`
-  display: flex;
-  width: 80%;
-  margin-top: 35px;
 `;
 
 export const Confirm = styled.div`

@@ -10,13 +10,13 @@ export const BlueSwitch = styled.button`
   border: none;
   padding: 0 8px;
   :hover {
-    background-color: #0000FF;
+    background-color: #0000FF80;
   }
   :active {
-    background-color: #0000FF60;
+    background-color: #0000FF;
   }
   :disabled {
-    background-color: #0000FF;
+    background-color: #0000FF80;
   }
 `;
 
@@ -30,12 +30,12 @@ export const RedSwitch = styled.button`
   border: none;
   padding: 0 8px;
   :hover {
-    background-color: #FF0000;
+    background-color: #FF000080;
   }
   :active {
-    background-color: #FF000060;
+    background-color: #FF0000;
   }
   :disabled {
-    background-color: #FF0000;
+    background-color: #FF000080;
   }
 `;
