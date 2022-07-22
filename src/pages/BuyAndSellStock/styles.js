@@ -13,8 +13,8 @@ export const Content = styled.div`
   border-radius: 50px;
   display: flex;
   flex-direction: column;
-  height: 600px;
+  height: 470px;
   max-width: 600px;
-  margin-top: 80px;
+  margin-top: 20px;
   width: 100%;
 `;

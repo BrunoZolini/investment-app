@@ -4,7 +4,6 @@ export const Container = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100vh;
   max-width: 1980px;
   width: 100vw;
 `;
@@ -12,7 +11,6 @@ export const Container = styled.div`
 export const SwitchContainer = styled.div`
   display: flex;
   left: 0;  
-  position: fixed;
   top: 85px;
   width: 100%;
 `;
@@ -23,9 +21,9 @@ export const Content = styled.div`
   border-radius: 50px;
   display: flex;
   flex-direction: column;
-  height: 600px;
+  height: 470px;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 20px;
   max-width: 600px;
   width: 100%;
   h2 {
