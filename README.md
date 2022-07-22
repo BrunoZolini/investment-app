@@ -48,7 +48,7 @@ npm install
 
   ### Executando Testes
 
-* Para rodar todos os testes:
+* Para rodar todos os testes: 
 
   ```
     npm test
