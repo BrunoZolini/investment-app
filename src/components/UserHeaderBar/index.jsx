@@ -10,7 +10,7 @@ export default function UserHeaderBar() {
   return (
     <C.Container>
       <NavLink to="/acoes">Ações</NavLink>
-      <NavLink to="/banco">Depósitos/Retiradas</NavLink>
+      <NavLink to="/banco">Depósitos/Saques</NavLink>
       <button
         type="button"
         onClick={() => {
