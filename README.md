@@ -3,9 +3,9 @@
   BZ Investimentos
 </h1>
 
-<h2><a href="https://bzinvestimentos.vercel.app/" target="_blank">Link para o Deploy</a></h2>
+<h3><a href="https://bzinvestimentos.vercel.app/" target="_blank">Link para o Deploy</a></h3>
 
-<img scr='./src/assets/images/working-app.gif' atl='Gif-app-working'>
+<img src='./src/assets/images/working-app.gif' atl='Gif-app-working'/>
 
 ## 💬 Contexto
 
