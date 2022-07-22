@@ -3,7 +3,7 @@
   BZ Investimentos
 </h1>
 
-<a href="https://bzinvestimentos.vercel.app/" target="_blank">Link para o Deploy</a>
+<h2><a href="https://bzinvestimentos.vercel.app/" target="_blank">Link para o Deploy</a></h2>
 
 ## 💬 Contexto
 

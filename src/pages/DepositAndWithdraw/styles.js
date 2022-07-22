@@ -21,11 +21,14 @@ export const Content = styled.div`
   border-radius: 50px;
   display: flex;
   flex-direction: column;
-  height: 470px;
+  height: 600px;
   justify-content: center;
   margin-top: 20px;
   max-width: 600px;
   width: 100%;
+  @media (max-width: 700px) {
+    height: 500px;
+  }
   h2 {
     background-color: ${(props) => props.color};
     margin-bottom: 10%;

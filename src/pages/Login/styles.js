@@ -17,7 +17,7 @@ export const Container = styled.div`
     form {
       display: flex;
       flex-direction: column;
-      height: 80%;
+      height: 100%;
       justify-content: space-around;
       max-width: 500px;
       max-height: 200px;
@@ -57,23 +57,14 @@ export const Container = styled.div`
         font-weight: 700;
       }
     }
-    span {
-      background-color: #ff6565;
-      border: 2px solid #ae1010;
-      font-weight: bold;
-      max-width: 500px;
-      min-width: 200px;
-      padding: 20px;
-      width: 80%;
-    }
-
+    
     img {
       border-radius: 20px;
       margin-bottom: 50px;
       max-width: 400px;
       width: 80%;
     }
-
+    
     p {
       margin: 10px;
       a {
@@ -82,4 +73,15 @@ export const Container = styled.div`
       }
     }
   }
-`;
+  span {
+    background-color: #ff6565;
+    border: 2px solid #ae1010;
+    font-weight: bold;
+    max-width: 500px;
+    min-width: 200px;
+    padding: 20px;
+    width: 80%;
+    position: fixed;
+    top: 20px;
+  }
+  `;

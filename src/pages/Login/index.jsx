@@ -48,9 +48,9 @@ export default function Login() {
 
   return (
     <C.Container>
-      <div>
-        <img src={LogoCompleta} alt="BZinvestment-logo" />
         {deniedUser && <span> Email ou senha inválidos</span>}
+      <div>
+        <img src={LogoCompleta} alt="BZ-investment-logo" />
         <form>
           <input
             placeholder="exemplo@exemplo.com"

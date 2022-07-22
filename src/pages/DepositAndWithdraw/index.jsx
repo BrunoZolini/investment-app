@@ -103,8 +103,8 @@ export default function DepositsAndWithdrawals() {
             <input
               type="number"
               id="value"
-              value={inputValue}
               onChange={({ target }) => validateQuantity(target)}
+              value={ inputValue }
             />
           </label>
           <B.ButtonsContainer>
