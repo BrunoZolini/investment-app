@@ -5,6 +5,8 @@
 
 <h2><a href="https://bzinvestimentos.vercel.app/" target="_blank">Link para o Deploy</a></h2>
 
+<img scr='./src/assets/images/working-app.gif' atl='Gif-app-working'>
+
 ## 💬 Contexto
 
 <p>Este projeto foi desenvolvido para o processo seletivo da empresa <a href="https://www.xpinc.com/" target="_blank">XP Inc</a> .</p>
