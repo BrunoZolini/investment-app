@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import context from '../../context/myContext';
 import * as T from '../shared/Table';
 import * as C from './styles';
@@ -60,3 +61,7 @@ export default function SingleStockTable({ stock }) {
     </C.Container>
   );
 }
+
+SingleStockTable.propTypes = {
+  stock: PropTypes.object,
+}.isRequired;

@@ -1,5 +1,6 @@
 /* eslint-disable no-alert */
 import React, { useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import context from '../../context/myContext';
 import * as C from './styles';
@@ -172,3 +173,7 @@ export default function BuyOrSellOperation({ stock }) {
     </C.Container>
   );
 }
+
+BuyOrSellOperation.propTypes = {
+  stock: PropTypes.object,
+}.isRequired;

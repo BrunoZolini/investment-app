@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
+import PropTypes from 'prop-types';
 import context from '../../context/myContext';
 import * as C from './styles';
 import * as S from '../shared/Switch';
 
-export default function BuyAndSellStock({ stock }) {
+export default function SwitchBuySell({ stock }) {
   const { willBuy, setWillBuy, currentUser } = useContext(context);
   const [userStocks, setUserStocks] = useState([]);
 
@@ -39,3 +40,7 @@ export default function BuyAndSellStock({ stock }) {
     </C.Container>
   );
 }
+
+SwitchBuySell.propTypes = {
+  stock: PropTypes.object,
+}.isRequired;
