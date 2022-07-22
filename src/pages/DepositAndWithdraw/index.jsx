@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header';
@@ -8,7 +9,7 @@ import * as B from '../../components/shared/Buttons';
 
 export default function DepositsAndWithdrawals() {
   const { currentUser, setCurrentUser } = useContext(context);
-  const [inputValue, setInputValue] = useState(0);
+  const [inputValue, setInputValue] = useState();
   const [willDeposit, setWillDeposit] = useState(true);
   const [isConfirmed, setIsConfirmed] = useState(false);
   const history = useHistory();
@@ -19,7 +20,7 @@ export default function DepositsAndWithdrawals() {
   }, [setCurrentUser]);
 
   const validateQuantity = (target) => {
-    let value = Math.max(1, Number(target.value));
+    let value = Math.max(0, Number(target.value));
     if (!willDeposit) {
       const max = currentUser.accountBalance;
       value = Math.max(0, Math.min(max, Number(target.value)));
@@ -59,6 +60,10 @@ export default function DepositsAndWithdrawals() {
   };
 
   const confirmOperation = () => {
+    if (!inputValue || inputValue === 0) {
+      window.alert('O valor deve ser maior que ZERO!')
+      return;
+    }
     if (willDeposit) depositOperation();
     if (!willDeposit) withdrawOperation();
     setInputValue(0);
@@ -108,7 +113,6 @@ export default function DepositsAndWithdrawals() {
             </B.ButtonBack>
             <B.ButtonDefault
               type="button"
-              disabled={inputValue === 0}
               onClick={confirmOperation}
             >
               Confirmar

@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import context from '../../context/myContext';
@@ -8,7 +9,7 @@ export default function BuyOrSellOperation({ stock }) {
   const { willBuy, setIsConfirmed, currentUser, setCurrentUser, isConfirmed } =
     useContext(context);
   const [operation, setOperation] = useState();
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState();
   const [allUsersStocks, setAllUsersStocks] = useState({});
   const history = useHistory();
 
@@ -21,12 +22,12 @@ export default function BuyOrSellOperation({ stock }) {
   }, [currentUser.id, willBuy]);
 
   const validateQuantity = (target) => {
-    let value = Math.max(1, Number(target.value));
+    let value = Math.max(0, Number(target.value));
     if (!willBuy) {
       const max = allUsersStocks[currentUser.id].find(
         ({ code }) => code === stock.code
       ).quantity;
-      value = Math.max(1, Math.min(max, Number(target.value)));
+      value = Math.max(0, Math.min(max, Number(target.value)));
     }
 
     setQuantity(value);
@@ -124,6 +125,10 @@ export default function BuyOrSellOperation({ stock }) {
   };
 
   const confirmOperation = () => {
+    if (!quantity || quantity === 0) {
+      window.alert('A quantidade deve ser maior que ZERO')
+      return;
+    }
     if (willBuy) {
       if (buyOperation()) return;
     }
@@ -152,7 +157,7 @@ export default function BuyOrSellOperation({ stock }) {
           </label>
           <p>
             Valor Total da {willBuy ? 'Compra: ' : 'Venda: '}
-            <span>R$ {(parseFloat(stock.value) * quantity).toFixed(2)}</span>
+            <span>R$ {(parseFloat(stock.value) * quantity || 0).toFixed(2)}</span>
           </p>
         </C.Operation>
         <B.ButtonsContainer>
