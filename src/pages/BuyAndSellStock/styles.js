@@ -15,6 +15,6 @@ export const Content = styled.div`
   flex-direction: column;
   height: 600px;
   max-width: 600px;
-  margin-top: 5%;
+  margin-top: 80px;
   width: 100%;
 `;

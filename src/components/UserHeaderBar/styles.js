@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 export const Container = styled.nav`
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.primary.background}80;
+  background-color: #1A1A1A;
   display: flex;
   flex-direction: column;
   padding: 50px;
   position: absolute;
   right: 0;
-  top: 80px;
+  top: 85px;
   width: 300px;
   a {
     color: white;

@@ -12,6 +12,7 @@ export default createGlobalStyle`
   body {
     background-color: ${(props) => props.theme.colors.background};
     font-size: 16px;
+    padding-top: 85px;
   }
 
   button {

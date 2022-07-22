@@ -6,7 +6,10 @@ export const Container = styled.header`
   display: flex;
   height: 85px;
   justify-content: space-between;
+  left: 0;
   padding: 20px;
+  position: fixed;
+  top:0;
   width: 100%;
   img {
     margin-left: 20px;
