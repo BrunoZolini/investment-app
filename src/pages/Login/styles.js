@@ -4,7 +4,7 @@ export const Container = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 550px;  
   max-width: 1980px;
   width: 100vw;
   div {
@@ -69,7 +69,7 @@ export const Container = styled.div`
 
     img {
       border-radius: 20px;
-      margin-bottom: 5px;
+      margin-bottom: 50px;
       max-width: 400px;
       width: 80%;
     }

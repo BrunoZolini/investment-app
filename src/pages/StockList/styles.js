@@ -6,7 +6,6 @@ export const Container = styled.div`
   flex-direction: column;
   height: 100vh;
   max-width: 1980px;
-  width: 100vw;
 `;
 
 export const Content = styled.div`
