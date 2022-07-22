@@ -1,39 +1,39 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100vw;
-  max-width: 1980px;
-  height: 100vh;
-  display: flex;
   align-items: center;
+  display: flex;
+  height: 100vh;
+  max-width: 1980px;
+  width: 100vw;
 `;
 
 export const Content = styled.div`
-  width: 100%;
-  height: 100%;
-  padding: 10%;
+  align-items: center;
   display: flex;
   flex-direction: column;
+  height: 100%;
   justify-content: center;
-  align-items: center;
+  padding: 10%;
+  width: 100%;
   h1 {
     color: #fff;
     font-size: 400%;
     font-weight: 800;
   }
   form {
-    width: 100%;
-    padding: 5%;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 5%;
+    width: 100%;
 
     label {
+      color: #ffffff90;
       display: flex;
       flex-direction: column;
-      margin-bottom: 10px;
       font-size: 150%;
-      color: #ffffff90;
+      margin-bottom: 10px;
       :focus-within {
         color: #ffff00;
       }
@@ -41,16 +41,16 @@ export const Content = styled.div`
         color: #ffff00;
       }
       input {
-        height: 100%;
-        width: 100%;
-        outline: none;
         background-color: transparent;
+        border: 2px solid #ffffff40;
         border-radius: 10px;
         color: #ffff00;
-        border: 2px solid #ffffff40;
         font-size: 100%;
+        height: 100%;
+        outline: none;
         padding-left: 1%;
         transition: all 0.4s ease-in-out;
+        width: 100%;
         ::placeholder {
           color: #ffffff40;
         }
@@ -72,12 +72,12 @@ export const Content = styled.div`
     }
   }
   span {
-    width: 80%;
-    min-width: 200px;
-    max-width: 250px;
-    font-weight: bold;
     background-color: #7bff5a;
     border: 2px solid #00ff00;
+    font-weight: bold;
+    max-width: 250px;
+    min-width: 200px;
     padding: 20px;
+    width: 80%;
   }
 `;

@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 export const ButtonDefault = styled.button`
-  width: 100%;
-  min-width: 110px;
-  height: 100%;
-  color: #000000;
-  margin-bottom: 5%;
   background-color: ${({ theme }) => theme.colors.primary.main};
   border: 1px solid #000000;
   border-radius: 5px;
+  color: #000000;
   font-size: 120%;
+  height: 100%;
+  margin-bottom: 5%;
+  min-width: 110px;
   transition: all 0.2s ease-in;
+  width: 100%;
   :hover {
     background-color: #e9d700;
   }
@@ -24,16 +24,16 @@ export const ButtonDefault = styled.button`
 `;
 
 export const ButtonBack = styled.button`
-  width: 100%;
-  min-width: 110px;
-  height: 100%;
-  color: #e9d700;
-  margin-right: 5%;
   background-color: #00000080;
   border: 1px solid #e9d700;
   border-radius: 5px;
+  color: #e9d700;
   font-size: 120%;
+  height: 100%;
+  margin-right: 5%;
+  min-width: 110px;
   transition: all 0.2s ease-in;
+  width: 100%;
   :hover {
     background-color: #000000;
   }
@@ -49,6 +49,6 @@ export const ButtonBack = styled.button`
 
 export const ButtonsContainer = styled.div`
   display: flex;
-  width: 80%;
   margin-top: 35px;
+  width: 80%;
 `;

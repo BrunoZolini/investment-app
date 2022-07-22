@@ -4,7 +4,7 @@ const defaultTheme = {
     color: '#FFFFFF',
     primary: {
       background: '#000000',
-      main: '#f8ed62',      
+      main: '#f8ed62',
     },
   },
 };

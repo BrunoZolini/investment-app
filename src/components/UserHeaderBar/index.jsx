@@ -12,7 +12,7 @@ export default function UserHeaderBar() {
       <NavLink to="/acoes">Ações</NavLink>
       <NavLink to="/banco">Depósitos/Retiradas</NavLink>
       <button
-        type='button'
+        type="button"
         onClick={() => {
           localStorage.setItem('currentUser', JSON.stringify({}));
           setCurrentUser({});

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  background-color: #4e4c4c80;
   margin-top: 30px;
-  background-color: #4E4C4C80;
   h2 {
-    background-color: #4E4C4C;
+    background-color: #4e4c4c;
     padding: 10px;
   }
   p {

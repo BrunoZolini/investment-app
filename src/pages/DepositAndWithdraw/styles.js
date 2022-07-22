@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100vw;
-  max-width: 1980px;
-  height: 100vh;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100vh;
+  max-width: 1980px;
+  width: 100vw;
 `;
 
 export const SwitchContainer = styled.div`
@@ -15,32 +15,30 @@ export const SwitchContainer = styled.div`
 `;
 
 export const Content = styled.div`
-  height: 600px;
-  width: 100%;
-  max-width: 600px;
+  align-items: center;
   background-color: #4e4c4c60;
+  border-radius: 50px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 600px;
   justify-content: center;
-  border-radius: 50px;
   margin-top: 5%;
-
+  max-width: 600px;
+  width: 100%;
   h2 {
-    width: 100%;
     background-color: ${(props) => props.color};
-    text-align: center;
-    padding: 8%;
     margin-bottom: 10%;
+    padding: 8%;
+    text-align: center;
+    width: 100%;
   }
-
   label {
-    padding: 20px;
+    color: #ffffff90;
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
     font-size: 150%;
-    color: #ffffff90;
+    margin-bottom: 10px;
+    padding: 20px;
     :focus-within {
       color: #ffff00;
     }
@@ -48,16 +46,16 @@ export const Content = styled.div`
       color: #ffff00;
     }
     input {
-      height: 100%;
-      width: 100%;
-      outline: none;
       background-color: transparent;
+      border: 2px solid #ffffff40;
       border-radius: 10px;
       color: #ffff00;
-      border: 2px solid #ffffff40;
       font-size: 100%;
+      height: 100%;
+      outline: none;
       padding-left: 1%;
       transition: all 0.4s ease-in-out;
+      width: 100%;
       ::placeholder {
         color: #ffffff40;
       }
@@ -74,24 +72,23 @@ export const Content = styled.div`
       }
     }
   }
-
   span {
-    width: 80%;
-    min-width: 200px;
-    max-width: 250px;
-    font-weight: bold;
     background-color: #7bff5a;
     border: 2px solid #00ff00;
+    font-weight: bold;
+    min-width: 200px;
+    max-width: 250px;
     padding: 20px;
+    width: 80%;
   }
 `;
 
 export const Operation = styled.div`
+  align-items: center;
+  background-color: #4e4c4c;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   margin: 20% 0;
   padding-bottom: 5%;
-  background-color: #4e4c4c;
 `;

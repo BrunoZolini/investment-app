@@ -42,7 +42,9 @@ export default function MyStocksTable() {
                   <tr key={stock.id}>
                     <T.Code>{stock.code}</T.Code>
                     <T.Name>{stock.name}</T.Name>
-                    <T.UnitValue>{parseFloat(stock.value).toFixed(2)}</T.UnitValue>
+                    <T.UnitValue>
+                      {parseFloat(stock.value).toFixed(2)}
+                    </T.UnitValue>
                     <T.Quantity>{stock.quantity}</T.Quantity>
                     <T.TotalValue>
                       {(

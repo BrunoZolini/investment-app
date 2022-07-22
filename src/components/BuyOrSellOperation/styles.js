@@ -1,37 +1,37 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100vw;
-  max-width: 1980px;
-  height: 100vh;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100vh;
+  max-width: 1980px;
+  width: 100vw;
 `;
 
 export const Content = styled.div`
-  height: 100vh;
-  max-height: 300px;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   background-color: #4e4c4c;
-  margin-top: 2%;  
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin-top: 2%;
+  max-height: 300px;
 `;
 
 export const Operation = styled.div`
-  height: 80%;
-  max-height: 200px;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 80%;
   margin-bottom: 5px;
+  max-height: 200px;
   h2 {
-    width: 100%;
-    background-color: ${(props) => props.color };
-    text-align: center;
+    background-color: ${(props) => props.color};
     padding: 8%;
+    text-align: center;
     margin-bottom: 10%;
+    width: 100%;
   }
   p {
     color: #ffff00;
@@ -42,55 +42,54 @@ export const Operation = styled.div`
     }
   }
   label {
-      padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 10px;
-      font-size: 150%;
-      color: #ffff0080;
-      :focus-within {
-        color: #ffff00;
+    color: #ffff0080;
+    display: flex;
+    flex-direction: column;
+    font-size: 150%;
+    margin-bottom: 10px;
+    padding: 0 20px;
+    :focus-within {
+      color: #ffff00;
+    }
+    :hover {
+      color: #ffff00;
+    }
+    input {
+      background-color: transparent;
+      border: 2px solid #ffff0080;
+      border-radius: 10px;
+      color: #ffff00;
+      font-size: 100%;
+      height: 100%;
+      outline: none;
+      padding-left: 1%;
+      transition: all 0.4s ease-in-out;
+      width: 100%;
+      ::placeholder {
+        color: #ffff0080;
+      }
+      :valid {
+        color: #ffff0080;
       }
       :hover {
-        color: #ffff00;
-      }
-      input {
-        height: 100%;
-        width: 100%;
-        outline: none;
-        background-color: transparent;
-        border-radius: 10px;
-        color: #ffff00;
         border: 2px solid #ffff0080;
-        font-size: 100%;
-        padding-left: 1%;
-        transition: all 0.4s ease-in-out;
-        ::placeholder {
-          color: #ffff0080;
-        }
-        :valid {
-          color: #ffff0080;
-        }
-        :hover {
-          border: 2px solid #ffff0080;
-          color: #ffff0080;
-        }
-        :focus {
-          border: 2px solid #ffff00;
-          color: #ffff00;
-        }
+        color: #ffff0080;
+      }
+      :focus {
+        border: 2px solid #ffff00;
+        color: #ffff00;
       }
     }
-  
+  }
 `;
 
 export const Confirm = styled.div`
-  width: 80%;
-  min-width: 200px;
-  max-width: 250px;
-  font-weight: bold;
   background-color: #7bff5a;
   border: 2px solid #00ff00;
-  padding: 10px;
+  font-weight: bold;
+  max-width: 250px;
   margin-top: 2%;
+  min-width: 200px;
+  padding: 10px;
+  width: 80%;
 `;

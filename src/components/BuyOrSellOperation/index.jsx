@@ -10,7 +10,6 @@ export default function BuyOrSellOperation({ stock }) {
   const [operation, setOperation] = useState();
   const [quantity, setQuantity] = useState(1);
   const [allUsersStocks, setAllUsersStocks] = useState({});
-
   const history = useHistory();
 
   useEffect(() => {
@@ -152,7 +151,7 @@ export default function BuyOrSellOperation({ stock }) {
             />
           </label>
           <p>
-            Valor Total da {willBuy ? 'Compra: ' : 'Venda: ' }
+            Valor Total da {willBuy ? 'Compra: ' : 'Venda: '}
             <span>R$ {(parseFloat(stock.value) * quantity).toFixed(2)}</span>
           </p>
         </C.Operation>

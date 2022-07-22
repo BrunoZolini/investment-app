@@ -1,41 +1,41 @@
 import styled from 'styled-components';
 
 export const BlueSwitch = styled.button`
-  width: 100%;
-  font-size: 200%;
-  background-color: #C0C0C050;
-  font-weight: 900;
-  transition: all 0.2s ease-in;
-  outline: none;
+  background-color: #c0c0c050;
   border: none;
+  font-size: 200%;
+  font-weight: 900;
+  outline: none;
   padding: 0 8px;
+  transition: all 0.2s ease-in;
+  width: 100%;
   :hover {
-    background-color: #0000FF80;
+    background-color: #0000ff80;
   }
   :active {
-    background-color: #0000FF;
+    background-color: #0000ff;
   }
   :disabled {
-    background-color: #0000FF80;
+    background-color: #0000ff80;
   }
 `;
 
 export const RedSwitch = styled.button`
-  width: 100%;
-  font-size: 200%;
-  background-color: #C0C0C050;
-  font-weight: 900;
-  transition: all 0.2s ease-in;
-  outline: none;
+  background-color: #c0c0c050;
   border: none;
+  font-size: 200%;
+  font-weight: 900;
+  outline: none;
   padding: 0 8px;
+  transition: all 0.2s ease-in;
+  width: 100%;
   :hover {
-    background-color: #FF000080;
+    background-color: #ff000080;
   }
   :active {
-    background-color: #FF0000;
+    background-color: #ff0000;
   }
   :disabled {
-    background-color: #FF000080;
+    background-color: #ff000080;
   }
 `;

@@ -17,8 +17,8 @@ export default function SingleStockTable({ stock }) {
   }, [currentUser.id, willBuy]);
 
   return (
-    <C.Container>      
-        <h2>Ação</h2>
+    <C.Container>
+      <h2>Ação</h2>
       <T.Table>
         <thead>
           <tr>

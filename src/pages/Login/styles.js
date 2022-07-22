@@ -1,39 +1,39 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100vw;
-  max-width: 1980px;
-  height: 100vh;
-  display: flex;
   align-items: center;
+  display: flex;
+  height: 100vh;
+  max-width: 1980px;
+  width: 100vw;
   div {
-    width: 100%;
-    height: 80%;
+    align-items: center;
     display: flex;
     flex-direction: column;
+    height: 80%;
     justify-content: space-around;
-    align-items: center;
+    width: 100%;
     form {
-      width: 80%;
-      height: 80%;
-      min-width: 200px;
-      max-width: 500px;
-      max-height: 200px;
       display: flex;
       flex-direction: column;
+      height: 80%;
       justify-content: space-around;
+      max-width: 500px;
+      max-height: 200px;
+      min-width: 200px;
+      width: 80%;
       input {
-        height: 100%;
-        width: 100%;
-        margin-bottom: 5%;
-        outline: none;
         background-color: transparent;
         border-radius: 10px;
-        color: #ffff00;
         border: 2px solid #ffffff40;
+        color: #ffff00;
         font-size: 130%;
+        height: 100%;
+        margin-bottom: 5%;
+        outline: none;
         padding-left: 3%;
         transition: all 0.4s ease-in-out;
+        width: 100%;
         ::placeholder {
           color: #ffffff40;
         }
@@ -57,20 +57,20 @@ export const Container = styled.div`
       }
     }
     span {
-      width: 80%;
-      min-width: 200px;
-      max-width: 500px;
-      font-weight: bold;
       background-color: #ff6565;
       border: 2px solid #ae1010;
+      font-weight: bold;
+      max-width: 500px;
+      min-width: 200px;
       padding: 20px;
+      width: 80%;
     }
 
     img {
-      width: 80%;
-      max-width: 400px;
       border-radius: 20px;
       margin-bottom: 5px;
+      max-width: 400px;
+      width: 80%;
     }
 
     p {

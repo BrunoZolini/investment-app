@@ -6,7 +6,6 @@ import * as C from './styles';
 import * as S from '../../components/shared/Switch';
 import * as B from '../../components/shared/Buttons';
 
-
 export default function DepositsAndWithdrawals() {
   const { currentUser, setCurrentUser } = useContext(context);
   const [inputValue, setInputValue] = useState(0);
@@ -55,7 +54,7 @@ export default function DepositsAndWithdrawals() {
     localStorage.setItem('users', JSON.stringify(usersStorage));
     setCurrentUser(currentUser);
     if (newBalance === 0) {
-      setWillDeposit(!willDeposit)
+      setWillDeposit(!willDeposit);
     }
   };
 

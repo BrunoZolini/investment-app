@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { ButtonDefault } from '../../components/shared/Buttons';
 import context from '../../context/myContext';
 import * as C from './styles';
-import LogoCompleta from '../../assets/images/LogoCompleta.png'
+import LogoCompleta from '../../assets/images/LogoCompleta.png';
 
 export default function Login() {
   const [email, setEmail] = useState('');

@@ -6,42 +6,41 @@ export const Container = styled.div`
 `;
 
 export const Buy = styled.button`
-  font-size: 100%;
-  background-color: #0000FF60;;
-  font-weight: 900;
-  transition: all 0.2s ease-in;
-  outline: none;
+  background-color: #0000ff60;
   border: none;
   border-radius: 100px;
-  padding: 0 8px;
+  font-size: 100%;
+  font-weight: 900;
   margin: 0 2px;
+  outline: none;
+  padding: 0 8px;
+  transition: all 0.2s ease-in;
   :hover {
-    background-color: #0000FF;
+    background-color: #0000ff;
   }
   :active {
-    background-color: #0000FF60;
+    background-color: #0000ff60;
   }
-  
 `;
 
 export const Sell = styled.button`
-  font-size: 100%;
-  background-color: #FF000060;
-  font-weight: 900;
-  transition: all 0.2s ease-in;
-  outline: none;
+  background-color: #ff000060;
   border: none;
   border-radius: 100px;
-  padding: 0 8px;
+  font-size: 100%;
+  font-weight: 900;
   margin: 0 2px;
+  outline: none;
+  padding: 0 8px;
+  transition: all 0.2s ease-in;
   :hover {
-    background-color: #FF0000;
+    background-color: #ff0000;
   }
   :active {
-    background-color: #FF000060;
+    background-color: #ff000060;
   }
   :disabled {
-    color: #C0C0C0;
-    background-color: #C0C0C050;
+    color: #c0c0c0;
+    background-color: #c0c0c050;
   }
 `;

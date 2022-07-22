@@ -5,7 +5,6 @@ import NegotiateButtons from '../NegotiateButtons';
 import * as T from '../shared/Table';
 import * as C from './styles';
 
-
 export default function AllStocksTable() {
   const [userStocks, setUserStocks] = useState([]);
   const { currentUser } = useContext(context);
