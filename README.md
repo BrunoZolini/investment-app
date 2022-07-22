@@ -44,14 +44,26 @@ npm install
 ``` 
 ### Executando aplicação
 
-  ```
-    npm start
-  ```
+
+```
+npm start
+```
+* A aplicação roda na porta 3000, caso você ja tenha algo nessa porta irá aparecer está mensagem: 
+
+<img src='./src/assets/images/change-port.png' atl='change-port'/>
+
+* Aperte **Y**
+
+```
+y
+```
+
+
 
   ### Executando Testes
 
 * Para rodar todos os testes: 
 
-  ```
-    npm test
-  ```
+```
+npm test
+```
