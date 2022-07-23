@@ -7,6 +7,6 @@ describe('Testing the login page', () => {
   it('1 - Have a logo image', () => {
     renderWithRouter(<Login />)
     const imgLogo  = screen.getByRole('img');
-    expect(imgLogo).toHaveProperty('alt', 'BZ-investment-logo');
+    expect(imgLogo).toBeInTheDocument();
   })
 })
