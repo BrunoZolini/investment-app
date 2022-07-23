@@ -37,7 +37,6 @@ export default function BuyOrSellOperation({ stock }) {
   const validateAccountBalance = () => {
     const totalPrice = (parseFloat(stock.value) * quantity).toFixed(2);
     if (currentUser.accountBalance < totalPrice) {
-      // eslint-disable-next-line no-alert
       window.alert('Saldo da conta insuficiente!');
       return true;
     }

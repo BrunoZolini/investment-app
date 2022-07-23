@@ -66,7 +66,7 @@ export default function DepositsAndWithdrawals() {
     }
     if (willDeposit) depositOperation();
     if (!willDeposit) withdrawOperation();
-    setInputValue(0);
+    setInputValue('');
     setIsConfirmed(true);
     setTimeout(() => {
       setIsConfirmed(false);
