@@ -1,9 +1,12 @@
-// import React from "react";
-// import { render, screen } from "@testing-library/react";
-// import Login from '../pages/Login';
+import React from "react";
+import { screen } from "@testing-library/react";
+import Login from '../pages/Login';
+import renderWithRouter from './helpers/renderWithRouter'
 
-describe('Hello Word', () => {
-  it('Hello Word', () => {
-    expect(true).toBe(true);
+describe('Testing the login page', () => {
+  it('1 - Have a logo image', () => {
+    renderWithRouter(<Login />)
+    const imgLogo  = screen.getByRole('img');
+    expect(imgLogo).toHaveProperty('alt', 'BZ-investment-logo');
   })
 })

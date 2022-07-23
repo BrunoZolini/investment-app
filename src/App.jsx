@@ -14,22 +14,20 @@ import defaultTheme from './assets/styles/themes/default';
 
 function App() {
   return (
-    <div>
-      <ThemeProvider theme={defaultTheme}>
-        <Provider>
-          <BrowserRouter>
-            <Switch>
-              <Route exact path="/" component={Login} />
-              <Route exact path="/acoes" component={StockList} />
-              <Route exact path="/cadastro" component={Registration} />
-              <Route exact path="/acao/:code" component={BuyAndSellStock} />
-              <Route exact path="/banco" component={DepositAndWithdraw} />
-            </Switch>
-            <GlobalStyles />
-          </BrowserRouter>
-        </Provider>
-      </ThemeProvider>
-    </div>
+    <ThemeProvider theme={defaultTheme}>
+      <Provider>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={Login} />
+            <Route exact path="/acoes" component={StockList} />
+            <Route exact path="/cadastro" component={Registration} />
+            <Route exact path="/acao/:code" component={BuyAndSellStock} />
+            <Route exact path="/banco" component={DepositAndWithdraw} />
+          </Switch>
+          <GlobalStyles />
+        </BrowserRouter>
+      </Provider>
+    </ThemeProvider>
   );
 }
 
