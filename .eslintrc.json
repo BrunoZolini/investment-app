@@ -1,3 +1,6 @@
 {
-  "extends": ["cestari"]
+  "extends": ["cestari"],
+  "env": {
+    "jest": true
+  }
 }
