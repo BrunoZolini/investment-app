@@ -50,6 +50,8 @@ export const User = styled.div`
     font-size: 140%;
     margin-right: 25px;
     padding: 3%;
+    text-align: center;
+    width: 30px;
   }
 `;
 
