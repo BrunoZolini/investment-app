@@ -30,7 +30,7 @@ export default function DepositsAndWithdrawals() {
   };
 
   const changeOperation = () => {
-    setInputValue(0);
+    setInputValue('');
     setWillDeposit(!willDeposit);
   };
 
