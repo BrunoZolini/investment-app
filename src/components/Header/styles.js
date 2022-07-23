@@ -15,6 +15,10 @@ export const Container = styled.header`
     margin-left: 20px;
     max-width: 60px;
   }
+  button {
+    border: none;
+    background-color: transparent;
+  }
 `;
 
 export const Aside = styled.div`
@@ -22,7 +26,7 @@ export const Aside = styled.div`
   min-width: 220px;
 `;
 
-export const Teste = styled.div`
+export const UserInfos = styled.div`
   align-items: flex-end;
   display: flex;
   flex-direction: column;

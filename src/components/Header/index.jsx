@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import context from '../../context/myContext';
 import UserHeaderBar from '../UserHeaderBar';
 import LogoSimples from '../../assets/images/LogoSimples.png';
@@ -10,6 +11,7 @@ export default function Header() {
   const [isUserClicked, setIsUserClicked] = useState(false);
   const [loading, setLoading] = useState(false);
   const { currentUser } = useContext(context);
+  const history = useHistory();
 
   useEffect(() => {
     setLoading(true);
@@ -17,13 +19,19 @@ export default function Header() {
 
   return (
     <C.Container>
-      <img src={LogoSimples} alt="BZInvestimentos-logo" />
+      <button 
+      type='button'
+      onClick={() => history.push('/acoes')}
+      >
+
+        <img src={LogoSimples} alt="BZInvestimentos-logo" />
+      </button>
       {loading && (
         <C.Aside>
-          <C.Teste>
+          <C.UserInfos>
             <C.User>
               <span>{currentUser.name[0].toUpperCase()}</span>
-              <p>{currentUser.name}</p>
+              <p>{currentUser.name.split(' ')[0]}</p>
             </C.User>
             <C.Balance>
               Seu Saldo{' '}
@@ -31,7 +39,7 @@ export default function Header() {
                 R$: {parseFloat(currentUser.accountBalance).toFixed(2)}
               </span>
             </C.Balance>
-          </C.Teste>
+          </C.UserInfos>
           <C.MenuButton
             type="button"
             onClick={() => setIsUserClicked(!isUserClicked)}
