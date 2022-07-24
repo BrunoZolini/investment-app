@@ -21,6 +21,7 @@
 * **JavaScript:** Linguagem escolhida para desenvolver as lógicas
 * **RTL + Jest:** Para testar a aplicação
 * **Styled-Components:** Para estilização
+* **Vercel:** Para o deploy
 
 ### Desafios e Tomadas de Decisão:
 
