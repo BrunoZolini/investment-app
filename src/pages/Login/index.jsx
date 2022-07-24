@@ -48,17 +48,19 @@ export default function Login() {
 
   return (
     <C.Container>
-        {deniedUser && <span> Email ou senha inválidos</span>}
+        {deniedUser && <span>Email ou senha inválidos</span>}
       <div>
         <img src={LogoCompleta} alt="BZ-investment-logo" />
         <form>
           <input
+            data-testid="email-input"
             placeholder="exemplo@exemplo.com"
             type="email"
             value={email}
             onChange={({ target }) => setEmail(target.value)}
           />
           <input
+            data-testid="password-input"
             type="password"
             placeholder="Password"
             onChange={({ target }) => setPassword(target.value)}
